@@ -2,273 +2,389 @@ export const series = [
   {
     id: 's1',
     type: 'series',
-    title: 'Linha de Falha',
-    originalTitle: 'Fault Line',
-    year: 2025,
-    rating: 9.1,
-    duration: 52,
-    genres: ['Crime', 'Drama'],
-    description: 'Uma perita forense descobre conexões assustadoras entre terremotos artificiais e uma rede de corrupção política que alcança a capital.',
-    poster: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=600&q=85',
-    backdrop: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=85',
-    director: 'Helena Duarte',
-    cast: ['Caio Reis', 'Laura Neri', 'Otávio Martins'],
-    classification: '16',
+    title: 'Breaking Bad: A Química do Mal',
+    originalTitle: 'Breaking Bad',
+    year: 2008,
+    rating: 9.5,
+    duration: 47,
+    genres: ['Drama', 'Crime', 'Thriller'],
+    description: 'Um professor de química diagnosticado com câncer começa a fabricar metanfetamina para garantir o futuro da família.',
+    poster: '',
+    backdrop: '',
+    director: 'Vince Gilligan',
+    cast: ['Bryan Cranston', 'Aaron Paul', 'Anna Gunn', 'Dean Norris'],
+    classification: '18',
     featured: true,
     seasons: [
       {
         number: 1,
         name: '1ª Temporada',
         episodes: [
-          { number: 1, title: 'O Tremor Inicial', duration: 54, overview: 'Um abalo sísmico de 4.2 graus atinge o centro financeiro, mas as anomalias nas leituras chamam a atenção da perita Helena.' },
-          { number: 2, title: 'Frequências Ocultas', duration: 50, overview: 'Novas evidências mostram que as falhas geológicas estão sendo induzidas por perfurações clandestinas.' },
-          { number: 3, title: 'Efeito Dominó', duration: 52, overview: 'A investigação avança até uma corporação de energia, enquanto ameaças veladas começam a surgir.' },
-          { number: 4, title: 'Ponto de Ruptura', duration: 56, overview: 'Com o tempo se esgotando, Helena tenta evitar um desastre iminente na barragem da região.' }
-        ]
-      },
-      {
-        number: 2,
-        name: '2ª Temporada',
-        episodes: [
-          { number: 1, title: 'Réplicas', duration: 51, overview: 'Meses após os eventos na barragem, novos sismógrafos detectam atividade suspeita no litoral.' },
-          { number: 2, title: 'Epicentro', duration: 53, overview: 'A equipe se reúne novamente para desmantelar o braço internacional da organização.' }
+          { number: 1, title: 'Pilot', duration: 58, overview: 'Walter White recebe um diagnóstico devastador e decide entrar no mundo do crime.' },
+          { number: 2, title: 'Cat\'s in the Bag...', duration: 48, overview: 'Walter e Jesse precisam lidar com as consequências do primeiro negócio.' }
         ]
       }
     ]
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 5 temporadas.
   },
   {
     id: 's2',
     type: 'series',
-    title: 'Neon District',
-    originalTitle: 'Neon District',
-    year: 2024,
-    rating: 8.6,
-    duration: 45,
-    genres: ['Ficção científica', 'Crime'],
-    description: 'Em 2091, uma detetive ciberboris caça memórias contrabandeadas pelas ruas brilhantes de uma metrópole vertical que nunca dorme.',
-    poster: 'https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=600&q=85',
-    backdrop: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1600&q=85',
-    director: 'Ken Ito',
-    cast: ['Samira Cole', 'Alex Jun', 'Renata Vane'],
-    classification: '14',
-    seasons: [
-      {
-        number: 1,
-        name: '1ª Temporada',
-        episodes: [
-          { number: 1, title: 'Luzes Falsas', duration: 46, overview: 'A morte de um comerciante de memórias revela um chip criptografado contendo registros apagados do governo.' },
-          { number: 2, title: 'Sombra Digital', duration: 44, overview: 'Samira explora o submundo dos hackers para rastrear a origem do chip.' },
-          { number: 3, title: 'Fantasma no Sinal', duration: 48, overview: 'Uma inteligência artificial fora de controle sequestra a rede do Distrito 7.' }
-        ]
-      }
-    ]
+    title: 'A Guerra dos Tronos',
+    originalTitle: 'Game of Thrones',
+    year: 2011,
+    rating: 9.2,
+    duration: 57,
+    genres: ['Drama', 'Fantasia', 'Aventura'],
+    description: 'Famílias nobres disputam o controle de Westeros enquanto uma ameaça ancestral desperta no Norte.',
+    poster: '', backdrop: '', director: 'David Benioff, D. B. Weiss',
+    cast: ['Emilia Clarke', 'Kit Harington', 'Peter Dinklage', 'Lena Headey'],
+    classification: '16', featured: true,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'Winter Is Coming', duration: 62, overview: 'A família Stark recebe uma visita real que muda o destino de Winterfell.' },
+        { number: 2, title: 'The Kingsroad', duration: 56, overview: 'As famílias deixam Winterfell e começam a viagem rumo à capital.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 8 temporadas.
   },
   {
-    id: 's3',
-    type: 'series',
-    title: 'Entre Pinheiros',
-    originalTitle: 'Among Pines',
-    year: 2023,
-    rating: 8.3,
-    duration: 48,
-    genres: ['Mistério', 'Drama'],
-    description: 'Uma jornalista investiga o desaparecimento de quatro jovens em uma pacata cidade serrana onde cada morador oculta uma versão dos fatos.',
-    poster: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=85',
-    backdrop: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1600&q=85',
-    director: 'Bia Amaral',
-    cast: ['Luna Lima', 'Pedro Sá', 'Marta Fontes'],
-    classification: '14',
-    seasons: [
-      {
-        number: 1,
-        name: '1ª Temporada',
-        episodes: [
-          { number: 1, title: 'O Apito do Nevoeiro', duration: 50, overview: 'Luna chega a Vila dos Pinheiros e descobre que a polícia local encerrou as buscas precocemente.' },
-          { number: 2, title: 'Segredos Sob a Geada', duration: 47, overview: 'Um diário encontrado no bosque aponta para um ritual antigo que ocorria nos anos 90.' }
-        ]
-      }
-    ]
+    id: 's3', type: 'series', title: 'Chernobyl', originalTitle: 'Chernobyl', year: 2019, rating: 9.3, duration: 60,
+    genres: ['Drama', 'Histórico', 'Thriller'], description: 'A minissérie dramatiza o acidente nuclear de 1986 e os esforços para conter suas consequências.', poster: '', backdrop: '',
+    director: 'Craig Mazin', cast: ['Jared Harris', 'Stellan Skarsgård', 'Emily Watson'], classification: '16', featured: true,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: '1:23:45', duration: 60, overview: 'Uma explosão ocorre no reator 4 de Chernobyl e a dimensão do desastre começa a ser ocultada.' },
+        { number: 2, title: 'Please Remain Calm', duration: 66, overview: 'Autoridades enfrentam a necessidade de evacuar Pripyat e conter a radiação.' }
+      ]
+    }]
   },
   {
-    id: 's4',
-    type: 'series',
-    title: 'Pequenos Sóis',
-    originalTitle: 'Little Suns',
-    year: 2022,
-    rating: 8.0,
-    duration: 30,
-    genres: ['Comédia', 'Drama'],
-    description: 'Cinco amigos na casa dos trinta transformam uma oficina mecânica abandonada em um espaço cultural independente no centro da cidade.',
-    poster: 'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=85',
-    backdrop: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1600&q=85',
-    director: 'Marcos Luz',
-    cast: ['Ana Lins', 'Gui Rocha', 'Carla Diaz', 'Beto Ramos'],
-    classification: '12',
-    seasons: [
-      {
-        number: 1,
-        name: '1ª Temporada',
-        episodes: [
-          { number: 1, title: 'A Chave da Garagem', duration: 32, overview: 'O grupo descobre que herdou o galpão e decide abrigar um festival de música local.' },
-          { number: 2, title: 'Acústica Imprevista', duration: 28, overview: 'Problemas com a vizinhança e fiscais da prefeitura colocam a noite de estreia em risco.' }
-        ]
-      }
-    ]
+    id: 's4', type: 'series', title: 'Dark', originalTitle: 'Dark', year: 2017, rating: 8.7, duration: 55,
+    genres: ['Ficção científica', 'Mistério', 'Drama'], description: 'O desaparecimento de uma criança revela segredos e ciclos temporais que atravessam gerações em uma pequena cidade alemã.', poster: '', backdrop: '',
+    director: 'Baran bo Odar, Jantje Friese', cast: ['Louis Hofmann', 'Lisa Vicari', 'Andreas Pietschmann'], classification: '16', featured: true,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'Secrets', duration: 51, overview: 'Após uma tragédia familiar, o desaparecimento de Erik movimenta a cidade de Winden.' },
+        { number: 2, title: 'Lies', duration: 44, overview: 'A investigação se aprofunda enquanto as famílias escondem informações importantes.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 3 temporadas.
   },
   {
-    id: 's5',
-    type: 'series',
-    title: 'Arquivos do Cosmos',
-    originalTitle: 'Cosmos Files',
-    year: 2025,
-    rating: 8.9,
-    duration: 55,
-    genres: ['Documentário', 'Ficção científica'],
-    description: 'Uma minissérie fascinante combinando astrofísica de ponta e dramatizações sobre a busca por inteligência extraterrestre.',
-    poster: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=85',
-    backdrop: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1600&q=85',
-    director: 'Dr. Arthur Pendelton',
-    cast: ['Dr. Carl Vance', 'Dra. Maya Lin'],
-    classification: 'Livre',
-    seasons: [
-      {
-        number: 1,
-        name: 'Temporada Única',
-        episodes: [
-          { number: 1, title: 'O Sinal Wow!', duration: 56, overview: 'Uma reanálise dos dados de 1977 revela padrões matemáticos nunca antes notados.' },
-          { number: 2, title: 'Exoplanetas Habitáveis', duration: 54, overview: 'Telescópios de nova geração fotografam atmosferas de mundos fora do sistema solar.' }
-        ]
-      }
-    ]
+    id: 's5', type: 'series', title: 'The Wire', originalTitle: 'The Wire', year: 2002, rating: 9.3, duration: 60,
+    genres: ['Drama', 'Crime'], description: 'Policiais, traficantes e instituições de Baltimore são observados em uma investigação ampla sobre poder e sobrevivência.', poster: '', backdrop: '',
+    director: 'David Simon', cast: ['Dominic West', 'Idris Elba', 'Michael K. Williams', 'Lance Reddick'], classification: '18', featured: false,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'The Target', duration: 63, overview: 'Uma equipe policial começa a investigar a organização de Avon Barksdale.' },
+        { number: 2, title: 'The Detail', duration: 59, overview: 'McNulty e Daniels enfrentam obstáculos para montar a nova unidade de investigação.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 5 temporadas.
   },
   {
-    id: 's6',
-    type: 'series',
-    title: 'Império de Sal',
-    originalTitle: 'Empire of Salt',
-    year: 2023,
-    rating: 8.7,
-    duration: 50,
-    genres: ['Drama', 'História'],
-    description: 'A saga de uma dinastia de comerciantes de sal no século XVII navegando por rotas perigosas e alianças traiçoeiras.',
-    poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=85',
-    backdrop: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=85',
-    director: 'Matteo Rossi',
-    cast: ['Isabella Vane', 'Giacomo Conti', 'Lucia Ferro'],
-    classification: '16',
-    seasons: [
-      {
-        number: 1,
-        name: '1ª Temporada',
-        episodes: [
-          { number: 1, title: 'Caravanas do Sul', duration: 52, overview: 'Com o fechamento dos portos do norte, a família Conti arrisca sua fortuna em uma nova rota marítima.' },
-          { number: 2, title: 'Ouro Branco', duration: 49, overview: 'Disputas territoriais ameaçam o controle das salinas no Mar Mediterrâneo.' }
-        ]
-      }
-    ]
+    id: 's6', type: 'series', title: 'The Sopranos', originalTitle: 'The Sopranos', year: 1999, rating: 9.2, duration: 55,
+    genres: ['Drama', 'Crime'], description: 'Um chefe da máfia de Nova Jersey tenta equilibrar a vida criminosa, a família e sessões de terapia.', poster: '', backdrop: '',
+    director: 'David Chase', cast: ['James Gandolfini', 'Edie Falco', 'Lorraine Bracco', 'Michael Imperioli'], classification: '18', featured: false,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'The Sopranos', duration: 55, overview: 'Tony Soprano procura ajuda de uma psiquiatra após sofrer ataques de pânico.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Corrigir duration para 55; episódios representativos de 6 temporadas.
   },
   {
-    id: 's7',
-    type: 'series',
-    title: 'Labirinto de Espelhos',
-    originalTitle: 'Mirror Maze',
-    year: 2024,
-    rating: 8.4,
-    duration: 42,
-    genres: ['Thriller', 'Mistério'],
-    description: 'Um terapeuta descobre que as memórias de seus pacientes contêm fragmentos do mesmo crime não resolvido ocorrido há 15 anos.',
-    poster: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=85',
-    backdrop: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1600&q=85',
-    director: 'Claire Dupont',
-    cast: ['Julian Mercer', 'Sophie Blanc', 'David Chen'],
-    classification: '16',
-    seasons: [
-      {
-        number: 1,
-        name: '1ª Temporada',
-        episodes: [
-          { number: 1, title: 'Sessão Número Zero', duration: 43, overview: 'Dr. Mercer nota detalhes idênticos nos relatos de trauma de três clientes desconhecidos entre si.' },
-          { number: 2, title: 'Déjà Vu', duration: 41, overview: 'Uma visita ao local citado nas sessões revela uma sala secreta intacta.' }
-        ]
-      }
-    ]
+    id: 's7', type: 'series', title: 'Fleabag', originalTitle: 'Fleabag', year: 2016, rating: 8.7, duration: 27,
+    genres: ['Comédia', 'Drama'], description: 'Uma mulher londrina tenta lidar com luto, relacionamentos e culpa usando humor ácido.', poster: '', backdrop: '', director: 'Phoebe Waller-Bridge',
+    cast: ['Phoebe Waller-Bridge', 'Sian Clifford', 'Olivia Colman', 'Andrew Scott'], classification: '16', featured: false,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'Episode 1', duration: 27, overview: 'Fleabag administra um café e atravessa uma noite complicada enquanto rompe a quarta parede.' },
+        { number: 2, title: 'Episode 2', duration: 27, overview: 'Uma visita familiar expõe tensões antigas e o humor defensivo da protagonista.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 2 temporadas.
   },
   {
-    id: 's8',
-    type: 'series',
-    title: 'Código Verde',
-    originalTitle: 'Green Code',
-    year: 2025,
-    rating: 8.2,
-    duration: 38,
-    genres: ['Comédia', 'Ficção científica'],
-    description: 'Engenheiros de uma startup ambiental tentam criar plantas capazes de gerar sinal Wi-Fi, gerando confusões inacreditáveis.',
-    poster: 'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=600&q=85',
-    backdrop: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1600&q=85',
-    director: 'Léo Paiva',
-    cast: ['Camila Flores', 'Téo Nogueira', 'Zacarias Cox'],
-    classification: '10',
-    seasons: [
-      {
-        number: 1,
-        name: '1ª Temporada',
-        episodes: [
-          { number: 1, title: 'Fotossíntese Digital', duration: 39, overview: 'A samambaia do laboratório atinge 1Gbps de transmissão, mas atrai todos os pássaros do bairro.' },
-          { number: 2, title: 'Praga de Bugs', duration: 37, overview: 'Insetos famintos por frequências rádio-energéticas invadem o escritório.' }
-        ]
-      }
-    ]
+    id: 's8', type: 'series', title: 'A Casa de Papel', originalTitle: 'La casa de papel', year: 2017, rating: 8.2, duration: 50,
+    genres: ['Crime', 'Ação', 'Thriller'], description: 'Um grupo de assaltantes executa um plano elaborado para invadir a Casa da Moeda da Espanha.', poster: '', backdrop: '', director: 'Álex Pina',
+    cast: ['Úrsula Corberó', 'Álvaro Morte', 'Itziar Ituño', 'Pedro Alonso'], classification: '16', featured: true,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'Episódio 1', duration: 47, overview: 'O Professor reúne oito criminosos e apresenta o plano do maior assalto da história.' },
+        { number: 2, title: 'Episódio 2', duration: 41, overview: 'A polícia começa a cercar a Casa da Moeda enquanto os reféns são controlados.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 5 partes.
   },
   {
-    id: 's9',
-    type: 'series',
-    title: 'Chefes do Submundo',
-    originalTitle: 'Underworld Chefs',
-    year: 2023,
-    rating: 8.8,
-    duration: 47,
-    genres: ['Ação', 'Comédia'],
-    description: 'Dois ex-agentes secretos abrem um bistrô de alta gastronomia e atendem aos clientes mais perigosos do planeta.',
-    poster: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=85',
-    backdrop: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1600&q=85',
-    director: 'Antoine Dubois',
-    cast: ['Jean-Pierre Martin', 'Claire Moreau', 'Hans Gruber'],
-    classification: '14',
-    seasons: [
-      {
-        number: 1,
-        name: '1ª Temporada',
-        episodes: [
-          { number: 1, title: 'Menu Degustação Mortal', duration: 48, overview: 'Um sindicato rival tenta envenenar o crítico gastronômico durante a noite de inauguração.' },
-          { number: 2, title: 'Sobremesa de Fogo', duration: 46, overview: 'Para salvar um refém na cozinha, o chef precisa preparar um soufflé perfeito em 15 minutos.' }
-        ]
-      }
-    ]
+    id: 's9', type: 'series', title: 'The Crown', originalTitle: 'The Crown', year: 2016, rating: 8.6, duration: 58,
+    genres: ['Drama', 'Histórico', 'Biografia'], description: 'A vida e o reinado da rainha Elizabeth II são retratados em meio a crises políticas e conflitos familiares.', poster: '', backdrop: '', director: 'Peter Morgan',
+    cast: ['Claire Foy', 'Olivia Colman', 'Imelda Staunton', 'Matt Smith'], classification: '14', featured: false,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'Wolferton Splash', duration: 57, overview: 'A jovem Elizabeth se prepara para assumir responsabilidades públicas enquanto a saúde do rei piora.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 6 temporadas.
   },
   {
-    id: 's10',
-    type: 'series',
-    title: 'Horizontes do Cerrado',
-    originalTitle: 'Savannah Horizons',
-    year: 2024,
-    rating: 8.5,
-    duration: 50,
-    genres: ['Drama', 'Romance'],
-    description: 'A rivalidade histórica entre duas famílias de produtores de café ganha novos rumos quando uma jovem agrônoma retorna à fazenda.',
-    poster: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=85',
-    backdrop: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1600&q=85',
-    director: 'Valéria Prado',
-    cast: ['Juliana Paes', 'Gabriel Sater', 'Renato Góes'],
-    classification: '12',
-    seasons: [
-      {
-        number: 1,
-        name: '1ª Temporada',
-        episodes: [
-          { number: 1, title: 'Terra e Herança', duration: 52, overview: 'Juliana descobre que a fazenda de sua família está prestes a ser vendida para o clã rival.' },
-          { number: 2, title: 'Safra de Ouro', duration: 49, overview: 'Uma nova técnica de cultivo orgânico promete salvar as colheitas e acirrar a competição.' }
-        ]
-      }
-    ]
+    id: 's10', type: 'series', title: 'Stranger Things', originalTitle: 'Stranger Things', year: 2016, rating: 8.6, duration: 51,
+    genres: ['Ficção científica', 'Terror', 'Mistério'], description: 'O desaparecimento de um garoto leva seus amigos a uma dimensão paralela e a experimentos secretos.', poster: '', backdrop: '', director: 'Matt Duffer, Ross Duffer',
+    cast: ['Winona Ryder', 'David Harbour', 'Millie Bobby Brown', 'Finn Wolfhard'], classification: '14', featured: true,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'Chapter One: The Vanishing of Will Byers', duration: 49, overview: 'Will desaparece ao voltar para casa, e seus amigos conhecem uma garota misteriosa.' },
+        { number: 2, title: 'Chapter Two: The Weirdo on Maple Street', duration: 56, overview: 'Mike, Dustin e Lucas escondem Eleven enquanto Joyce recebe sinais inexplicáveis.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui múltiplas temporadas.
+  },
+  {
+    id: 's11', type: 'series', title: 'The Office', originalTitle: 'The Office', year: 2005, rating: 9.0, duration: 22,
+    genres: ['Comédia'], description: 'Um documentário acompanha o cotidiano, as relações e as situações absurdas de uma empresa de papel na Pensilvânia.', poster: '', backdrop: '', director: 'Greg Daniels',
+    cast: ['Steve Carell', 'Rainn Wilson', 'John Krasinski', 'Jenna Fischer'], classification: '12', featured: false,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'Pilot', duration: 23, overview: 'A equipe da Dunder Mifflin é apresentada por meio de uma reunião acompanhada por câmeras.' },
+        { number: 2, title: 'Diversity Day', duration: 22, overview: 'Um treinamento sobre diversidade provoca situações desconfortáveis no escritório.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 9 temporadas.
+  },
+  {
+    id: 's12', type: 'series', title: 'The Mandalorian', originalTitle: 'The Mandalorian', year: 2019, rating: 8.6, duration: 40,
+    genres: ['Ação', 'Aventura', 'Ficção científica'], description: 'Um caçador de recompensas atravessa a galáxia protegendo uma criança ligada à Força.', poster: '', backdrop: '', director: 'Jon Favreau',
+    cast: ['Pedro Pascal', 'Carl Weathers', 'Gina Carano', 'Giancarlo Esposito'], classification: '12', featured: true,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'Chapter 1: The Mandalorian', duration: 39, overview: 'Um caçador mandaloriano aceita um trabalho valioso e encontra uma surpresa inesperada.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 3 temporadas.
+  },
+  {
+    id: 's13', type: 'series', title: 'The Last of Us', originalTitle: 'The Last of Us', year: 2023, rating: 8.7, duration: 55,
+    genres: ['Drama', 'Ação', 'Terror'], description: 'Vinte anos após uma pandemia devastadora, Joel precisa escoltar Ellie por um território hostil.', poster: '', backdrop: '', director: 'Craig Mazin, Neil Druckmann',
+    cast: ['Pedro Pascal', 'Bella Ramsey', 'Anna Torv', 'Murray Bartlett'], classification: '16', featured: true,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'When You\'re Lost in the Darkness', duration: 81, overview: 'Uma pandemia transforma o mundo e, anos depois, Joel recebe uma missão perigosa.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+  },
+  {
+    id: 's14', type: 'series', title: 'Succession', originalTitle: 'Succession', year: 2018, rating: 8.9, duration: 60,
+    genres: ['Drama', 'Comédia', 'Crime'], description: 'Os filhos de um magnata da mídia disputam o controle do império familiar enquanto a saúde do patriarca declina.', poster: '', backdrop: '', director: 'Jesse Armstrong',
+    cast: ['Brian Cox', 'Jeremy Strong', 'Sarah Snook', 'Kieran Culkin'], classification: '16', featured: false,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'Celebration', duration: 65, overview: 'A festa de aniversário de Logan Roy é abalada por uma decisão sobre a sucessão.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 4 temporadas.
+  },
+  {
+    id: 's15', type: 'series', title: 'Fargo', originalTitle: 'Fargo', year: 2014, rating: 8.9, duration: 50,
+    genres: ['Crime', 'Drama', 'Thriller'], description: 'Antologias criminais ambientadas no meio-oeste americano revelam violência, acaso e humor sombrio.', poster: '', backdrop: '', director: 'Noah Hawley',
+    cast: ['Billy Bob Thornton', 'Martin Freeman', 'Allison Tolman', 'Kirsten Dunst'], classification: '16', featured: false,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'The Crocodile\'s Dilemma', duration: 67, overview: 'Um vendedor de seguros encontra um estranho que desperta seus impulsos mais violentos.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 5 temporadas.
+  },
+  {
+    id: 's16', type: 'series', title: 'Twin Peaks', originalTitle: 'Twin Peaks', year: 1990, rating: 8.8, duration: 47,
+    genres: ['Mistério', 'Drama', 'Terror'], description: 'Um agente do FBI investiga o assassinato de uma adolescente em uma cidade cheia de segredos e estranhezas.', poster: '', backdrop: '', director: 'Mark Frost, David Lynch',
+    cast: ['Kyle MacLachlan', 'Sheryl Lee', 'Michael Ontkean', 'Lara Flynn Boyle'], classification: '16', featured: false,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'Pilot', duration: 94, overview: 'O corpo de Laura Palmer é encontrado e o agente Cooper chega a Twin Peaks.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 3 temporadas.
+  },
+  {
+    id: 's17', type: 'series', title: 'Black Mirror', originalTitle: 'Black Mirror', year: 2011, rating: 8.7, duration: 60,
+    genres: ['Ficção científica', 'Drama', 'Thriller'], description: 'Histórias independentes exploram as consequências sombrias da tecnologia e do comportamento humano.', poster: '', backdrop: '', director: 'Charlie Brooker',
+    cast: ['Daniel Lapaine', 'Jon Hamm', 'Bryce Dallas Howard', 'Mackenzie Davis'], classification: '16', featured: false,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'The National Anthem', duration: 44, overview: 'Um primeiro-ministro é submetido a uma exigência perturbadora transmitida em rede nacional.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Antologia com episódios independentes; foram incluídos episódios representativos.
+  },
+  {
+    id: 's18', type: 'series', title: 'Mindhunter', originalTitle: 'Mindhunter', year: 2017, rating: 8.6, duration: 53,
+    genres: ['Crime', 'Drama', 'Thriller'], description: 'Agentes do FBI entrevistam assassinos serializados para desenvolver novas técnicas de análise criminal.', poster: '', backdrop: '', director: 'Joe Penhall',
+    cast: ['Jonathan Groff', 'Holt McCallany', 'Anna Torv', 'Cameron Britton'], classification: '18', featured: false,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'Episode 1', duration: 60, overview: 'Holden Ford questiona métodos tradicionais e começa a estudar a mente de criminosos.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 2 temporadas.
+  },
+  {
+    id: 's19', type: 'series', title: 'Peaky Blinders', originalTitle: 'Peaky Blinders', year: 2013, rating: 8.8, duration: 58,
+    genres: ['Drama', 'Crime'], description: 'Uma família criminosa de Birmingham expande seus negócios enquanto enfrenta rivais e autoridades.', poster: '', backdrop: '', director: 'Steven Knight',
+    cast: ['Cillian Murphy', 'Helen McCrory', 'Paul Anderson', 'Tom Hardy'], classification: '16', featured: true,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'Episode 1', duration: 57, overview: 'Tommy Shelby prepara a ascensão dos Peaky Blinders em meio a uma operação policial.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 6 temporadas.
+  },
+  {
+    id: 's20', type: 'series', title: 'Better Call Saul', originalTitle: 'Better Call Saul', year: 2015, rating: 9.0, duration: 46,
+    genres: ['Drama', 'Crime'], description: 'O advogado Jimmy McGill percorre um caminho tortuoso até se tornar o inescrupuloso Saul Goodman.', poster: '', backdrop: '', director: 'Vince Gilligan, Peter Gould',
+    cast: ['Bob Odenkirk', 'Rhea Seehorn', 'Jonathan Banks', 'Giancarlo Esposito'], classification: '16', featured: false,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'Uno', duration: 58, overview: 'Jimmy tenta construir uma carreira honesta enquanto enfrenta dificuldades financeiras e familiares.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 6 temporadas.
+  },
+  {
+    id: 's21', type: 'series', title: 'Mr. Robot', originalTitle: 'Mr. Robot', year: 2015, rating: 8.5, duration: 49,
+    genres: ['Drama', 'Thriller', 'Crime'], description: 'Um engenheiro de cibersegurança é recrutado por um grupo hacktivista para derrubar o sistema financeiro.', poster: '', backdrop: '', director: 'Sam Esmail',
+    cast: ['Rami Malek', 'Christian Slater', 'Carly Chaikin', 'Portia Doubleday'], classification: '16', featured: false,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'eps1.0_hellofriend.mov', duration: 65, overview: 'Elliot identifica criminosos durante o trabalho e recebe uma proposta de Mr. Robot.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 4 temporadas.
+  },
+  {
+    id: 's22', type: 'series', title: 'The Haunting of Hill House', originalTitle: 'The Haunting of Hill House', year: 2018, rating: 8.5, duration: 55,
+    genres: ['Terror', 'Drama', 'Mistério'], description: 'Irmãos adultos enfrentam as memórias da casa assombrada onde cresceram e os traumas que os separaram.', poster: '', backdrop: '', director: 'Mike Flanagan',
+    cast: ['Michiel Huisman', 'Carla Gugino', 'Elizabeth Reaser', 'Victoria Pedretti'], classification: '16', featured: false,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'Steven Sees a Ghost', duration: 57, overview: 'Steven visita a antiga casa da família e relembra a noite em que tudo mudou.' }
+      ]
+    }]
+  },
+  {
+    id: 's23', type: 'series', title: 'The Good Place', originalTitle: 'The Good Place', year: 2016, rating: 8.2, duration: 22,
+    genres: ['Comédia', 'Fantasia'], description: 'Uma mulher percebe que foi parar no lugar errado após a morte e tenta se tornar uma pessoa melhor.', poster: '', backdrop: '', director: 'Michael Schur',
+    cast: ['Kristen Bell', 'Ted Danson', 'William Jackson Harper', 'Jameela Jamil'], classification: '12', featured: false,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'Everything Is Fine', duration: 22, overview: 'Eleanor chega a uma vida após a morte aparentemente perfeita, mas descobre um erro em seu destino.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 4 temporadas.
+  },
+  {
+    id: 's24', type: 'series', title: 'Atlanta', originalTitle: 'Atlanta', year: 2016, rating: 8.6, duration: 25,
+    genres: ['Comédia', 'Drama'], description: 'Um jovem tenta administrar a carreira musical do primo e as contradições da vida em Atlanta.', poster: '', backdrop: '', director: 'Donald Glover',
+    cast: ['Donald Glover', 'Brian Tyree Henry', 'LaKeith Stanfield', 'Zazie Beetz'], classification: '16', featured: false,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'The Big Bang', duration: 30, overview: 'Earn tenta recuperar sua posição e acompanha o primo Paper Boi após um confronto.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 4 temporadas.
+  },
+  {
+    id: 's25', type: 'series', title: 'BoJack Horseman', originalTitle: 'BoJack Horseman', year: 2014, rating: 8.8, duration: 25,
+    genres: ['Animação', 'Comédia', 'Drama'], description: 'Um astro decadente de uma sitcom tenta recuperar a carreira enquanto enfrenta vícios e vazio existencial.', poster: '', backdrop: '', director: 'Raphael Bob-Waksberg',
+    cast: ['Will Arnett', 'Alison Brie', 'Aaron Paul', 'Amy Sedaris'], classification: '16', featured: false,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'BoJack Horseman: The BoJack Horseman Story, Chapter One', duration: 25, overview: 'BoJack decide publicar uma autobiografia para voltar aos holofotes.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 6 temporadas.
+  },
+  {
+    id: 's26', type: 'series', title: 'Arcane', originalTitle: 'Arcane', year: 2021, rating: 9.0, duration: 40,
+    genres: ['Animação', 'Ação', 'Fantasia'], description: 'Duas irmãs são separadas por um conflito entre a cidade rica de Piltover e o submundo de Zaun.', poster: '', backdrop: '', director: 'Christian Linke, Alex Yee',
+    cast: ['Hailee Steinfeld', 'Ella Purnell', 'Kevin Alejandro', 'Jason Spisak'], classification: '16', featured: true,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'Welcome to the Playground', duration: 43, overview: 'Vi e Powder participam de um roubo em Piltover que desencadeia uma crise entre as cidades.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+  },
+  {
+    id: 's27', type: 'series', title: 'Cowboy Bebop', originalTitle: 'Kaubōi Bibappu', year: 1998, rating: 8.9, duration: 24,
+    genres: ['Animação', 'Ação', 'Ficção científica'], description: 'Caçadores de recompensas viajam pelo sistema solar atrás de criminosos e de seus próprios passados.', poster: '', backdrop: '', director: 'Hajime Yatate',
+    cast: ['Kōichi Yamadera', 'Unshō Ishizuka', 'Megumi Hayashibara'], classification: '14', featured: false,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'Asteroid Blues', duration: 24, overview: 'Spike e Jet perseguem um traficante de drogas em uma colônia próxima a Marte.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 1 temporada de 26 episódios.
+  },
+  {
+    id: 's28', type: 'series', title: 'Kingdom', originalTitle: '킹덤', year: 2019, rating: 8.3, duration: 50,
+    genres: ['Terror', 'Ação', 'Drama'], description: 'Na Coreia da era Joseon, um príncipe investiga uma epidemia que transforma os mortos em monstros.', poster: '', backdrop: '', director: 'Kim Eun-hee, Kim Seong-hun',
+    cast: ['Ju Ji-hoon', 'Bae Doona', 'Ryu Seung-ryong', 'Kim Sang-ho'], classification: '16', featured: false,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'Episode 1', duration: 56, overview: 'O príncipe herdeiro descobre rumores sobre a doença do rei e encontra sinais de uma ameaça sobrenatural.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 2 temporadas e um especial.
+  },
+  {
+    id: 's29', type: 'series', title: 'Borgen', originalTitle: 'Borgen', year: 2010, rating: 8.5, duration: 58,
+    genres: ['Drama', 'Político'], description: 'Uma política dinamarquesa chega ao cargo de primeira-ministra e enfrenta os custos pessoais do poder.', poster: '', backdrop: '', director: 'Adam Price',
+    cast: ['Sidse Babett Knudsen', 'Birgitte Hjort Sørensen', 'Pilou Asbæk'], classification: '14', featured: false,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'The Decent One', duration: 58, overview: 'Uma eleição inesperada coloca Birgitte Nyborg no centro das negociações para formar governo.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 4 temporadas.
+  },
+  {
+    id: 's30', type: 'series', title: 'Gomorra', originalTitle: 'Gomorra - La serie', year: 2014, rating: 8.6, duration: 50,
+    genres: ['Crime', 'Drama', 'Thriller'], description: 'Uma disputa pelo controle de uma organização criminosa napolitana envolve lealdades, ambição e violência.', poster: '', backdrop: '', director: 'Roberto Saviano',
+    cast: ['Marco D\'Amore', 'Salvatore Esposito', 'Fortunato Cerlino', 'Maria Pia Calzone'], classification: '18', featured: false,
+    seasons: [{
+      number: 1, name: '1ª Temporada', episodes: [
+        { number: 1, title: 'Il clan dei Savastano', duration: 52, overview: 'A liderança dos Savastano é ameaçada enquanto Ciro tenta provar seu valor dentro do clã.' }
+      ]
+    }],
+    // TODO: Pesquisar posteriormente URLs adequadas de poster e backdrop.
+    // TODO: Foram incluídos episódios representativos; a série possui 5 temporadas.
   }
 ];

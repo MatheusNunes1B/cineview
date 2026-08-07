@@ -28,11 +28,11 @@ export function detailsPage(item, allItems = []) {
   return `
     <main class="pb-16">
       <!-- Hero Header -->
-      <section class="hero relative min-h-[460px] flex items-end" style="background-image: url('${item.backdrop}');">
+      <section class="hero relative min-h-[460px] flex items-end" style="background-image: url('${item.backdrop || 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=85'}');">
         <div class="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-start gap-8 px-4 py-12 sm:px-6 md:flex-row md:items-end">
           <img 
             class="poster shadow-2xl w-44 rounded-xl border border-white/10 hidden md:block shrink-0" 
-            src="${item.poster}" 
+            src="${item.poster || 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=600&q=85'}" 
             alt="Pôster de ${escapeHtml(item.title)}"
           >
           <div class="max-w-3xl">

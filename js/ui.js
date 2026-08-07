@@ -71,7 +71,7 @@ export function card(x) {
       <a href="${detailUrl(x.id)}" aria-label="Ver detalhes de ${escapeHtml(x.title)}" class="relative block w-full overflow-hidden aspect-[2/3]">
         <img 
           class="poster absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" 
-          src="${x.poster}" 
+          src="${x.poster || 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=600&q=85'}" 
           alt="Pôster de ${escapeHtml(x.title)}" 
           loading="lazy"
           onerror="this.src='https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=600&q=85'"
