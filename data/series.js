@@ -9,8 +9,7 @@ export const series = [
     duration: 47,
     genres: ['Drama', 'Crime', 'Thriller'],
     description: 'Um professor de química diagnosticado com câncer começa a fabricar metanfetamina para garantir o futuro da família.',
-    poster: '',
-    backdrop: '',
+    poster: './img/bad.jpg', backdrop: './img/bad.jpg',
     director: 'Vince Gilligan',
     cast: ['Bryan Cranston', 'Aaron Paul', 'Anna Gunn', 'Dean Norris'],
     classification: '18',
@@ -38,7 +37,7 @@ export const series = [
     duration: 57,
     genres: ['Drama', 'Fantasia', 'Aventura'],
     description: 'Famílias nobres disputam o controle de Westeros enquanto uma ameaça ancestral desperta no Norte.',
-    poster: '', backdrop: '', director: 'David Benioff, D. B. Weiss',
+    poster: './img/trono.jpg', backdrop: './img/trono.jpg', director: 'David Benioff, D. B. Weiss',
     cast: ['Emilia Clarke', 'Kit Harington', 'Peter Dinklage', 'Lena Headey'],
     classification: '16', featured: true,
     seasons: [{
@@ -52,7 +51,7 @@ export const series = [
   },
   {
     id: 's3', type: 'series', title: 'Chernobyl', originalTitle: 'Chernobyl', year: 2019, rating: 9.3, duration: 60,
-    genres: ['Drama', 'Histórico', 'Thriller'], description: 'A minissérie dramatiza o acidente nuclear de 1986 e os esforços para conter suas consequências.', poster: '', backdrop: '',
+    genres: ['Drama', 'Histórico', 'Thriller'], description: 'A minissérie dramatiza o acidente nuclear de 1986 e os esforços para conter suas consequências.', poster: './img/Chernobyl.jpg', backdrop: './img/Chernobyl.jpg',
     director: 'Craig Mazin', cast: ['Jared Harris', 'Stellan Skarsgård', 'Emily Watson'], classification: '16', featured: true,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -63,7 +62,7 @@ export const series = [
   },
   {
     id: 's4', type: 'series', title: 'Dark', originalTitle: 'Dark', year: 2017, rating: 8.7, duration: 55,
-    genres: ['Ficção científica', 'Mistério', 'Drama'], description: 'O desaparecimento de uma criança revela segredos e ciclos temporais que atravessam gerações em uma pequena cidade alemã.', poster: '', backdrop: '',
+    genres: ['Ficção científica', 'Mistério', 'Drama'], description: 'O desaparecimento de uma criança revela segredos e ciclos temporais que atravessam gerações em uma pequena cidade alemã.', poster: './img/darkk.jpg', backdrop: './img/darkk.jpg',
     director: 'Baran bo Odar, Jantje Friese', cast: ['Louis Hofmann', 'Lisa Vicari', 'Andreas Pietschmann'], classification: '16', featured: true,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -76,7 +75,7 @@ export const series = [
   },
   {
     id: 's5', type: 'series', title: 'The Wire', originalTitle: 'The Wire', year: 2002, rating: 9.3, duration: 60,
-    genres: ['Drama', 'Crime'], description: 'Policiais, traficantes e instituições de Baltimore são observados em uma investigação ampla sobre poder e sobrevivência.', poster: '', backdrop: '',
+    genres: ['Drama', 'Crime'], description: 'Policiais, traficantes e instituições de Baltimore são observados em uma investigação ampla sobre poder e sobrevivência.', poster: './img/Wire.jpg', backdrop: './img/Wire.jpg',
     director: 'David Simon', cast: ['Dominic West', 'Idris Elba', 'Michael K. Williams', 'Lance Reddick'], classification: '18', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -89,7 +88,7 @@ export const series = [
   },
   {
     id: 's6', type: 'series', title: 'The Sopranos', originalTitle: 'The Sopranos', year: 1999, rating: 9.2, duration: 55,
-    genres: ['Drama', 'Crime'], description: 'Um chefe da máfia de Nova Jersey tenta equilibrar a vida criminosa, a família e sessões de terapia.', poster: '', backdrop: '',
+    genres: ['Drama', 'Crime'], description: 'Um chefe da máfia de Nova Jersey tenta equilibrar a vida criminosa, a família e sessões de terapia.', poster: './img/Sopranos.jpg', backdrop: './img/Sopranos.jpg',
     director: 'David Chase', cast: ['James Gandolfini', 'Edie Falco', 'Lorraine Bracco', 'Michael Imperioli'], classification: '18', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -101,7 +100,7 @@ export const series = [
   },
   {
     id: 's7', type: 'series', title: 'Fleabag', originalTitle: 'Fleabag', year: 2016, rating: 8.7, duration: 27,
-    genres: ['Comédia', 'Drama'], description: 'Uma mulher londrina tenta lidar com luto, relacionamentos e culpa usando humor ácido.', poster: '', backdrop: '', director: 'Phoebe Waller-Bridge',
+    genres: ['Comédia', 'Drama'], description: 'Uma mulher londrina tenta lidar com luto, relacionamentos e culpa usando humor ácido.', poster: './img/fleabag.jpg', backdrop: './img/fleabag.jpg', director: 'Phoebe Waller-Bridge',
     cast: ['Phoebe Waller-Bridge', 'Sian Clifford', 'Olivia Colman', 'Andrew Scott'], classification: '16', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -114,7 +113,7 @@ export const series = [
   },
   {
     id: 's8', type: 'series', title: 'A Casa de Papel', originalTitle: 'La casa de papel', year: 2017, rating: 8.2, duration: 50,
-    genres: ['Crime', 'Ação', 'Thriller'], description: 'Um grupo de assaltantes executa um plano elaborado para invadir a Casa da Moeda da Espanha.', poster: '', backdrop: '', director: 'Álex Pina',
+    genres: ['Crime', 'Ação', 'Thriller'], description: 'Um grupo de assaltantes executa um plano elaborado para invadir a Casa da Moeda da Espanha.', poster: './img/casa.jpg', backdrop: './img/casa.jpg', director: 'Álex Pina',
     cast: ['Úrsula Corberó', 'Álvaro Morte', 'Itziar Ituño', 'Pedro Alonso'], classification: '16', featured: true,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -127,7 +126,7 @@ export const series = [
   },
   {
     id: 's9', type: 'series', title: 'The Crown', originalTitle: 'The Crown', year: 2016, rating: 8.6, duration: 58,
-    genres: ['Drama', 'Histórico', 'Biografia'], description: 'A vida e o reinado da rainha Elizabeth II são retratados em meio a crises políticas e conflitos familiares.', poster: '', backdrop: '', director: 'Peter Morgan',
+    genres: ['Drama', 'Histórico', 'Biografia'], description: 'A vida e o reinado da rainha Elizabeth II são retratados em meio a crises políticas e conflitos familiares.', poster: './img/crown.jpg', backdrop: './img/crown.jpg', director: 'Peter Morgan',
     cast: ['Claire Foy', 'Olivia Colman', 'Imelda Staunton', 'Matt Smith'], classification: '14', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -139,7 +138,7 @@ export const series = [
   },
   {
     id: 's10', type: 'series', title: 'Stranger Things', originalTitle: 'Stranger Things', year: 2016, rating: 8.6, duration: 51,
-    genres: ['Ficção científica', 'Terror', 'Mistério'], description: 'O desaparecimento de um garoto leva seus amigos a uma dimensão paralela e a experimentos secretos.', poster: '', backdrop: '', director: 'Matt Duffer, Ross Duffer',
+    genres: ['Ficção científica', 'Terror', 'Mistério'], description: 'O desaparecimento de um garoto leva seus amigos a uma dimensão paralela e a experimentos secretos.', poster: './img/stranger.jpg', backdrop: './img/stranger.jpg', director: 'Matt Duffer, Ross Duffer',
     cast: ['Winona Ryder', 'David Harbour', 'Millie Bobby Brown', 'Finn Wolfhard'], classification: '14', featured: true,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -152,7 +151,7 @@ export const series = [
   },
   {
     id: 's11', type: 'series', title: 'The Office', originalTitle: 'The Office', year: 2005, rating: 9.0, duration: 22,
-    genres: ['Comédia'], description: 'Um documentário acompanha o cotidiano, as relações e as situações absurdas de uma empresa de papel na Pensilvânia.', poster: '', backdrop: '', director: 'Greg Daniels',
+    genres: ['Comédia'], description: 'Um documentário acompanha o cotidiano, as relações e as situações absurdas de uma empresa de papel na Pensilvânia.', poster: './img/office.jpg', backdrop: './img/office.jpg', director: 'Greg Daniels',
     cast: ['Steve Carell', 'Rainn Wilson', 'John Krasinski', 'Jenna Fischer'], classification: '12', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -165,7 +164,7 @@ export const series = [
   },
   {
     id: 's12', type: 'series', title: 'The Mandalorian', originalTitle: 'The Mandalorian', year: 2019, rating: 8.6, duration: 40,
-    genres: ['Ação', 'Aventura', 'Ficção científica'], description: 'Um caçador de recompensas atravessa a galáxia protegendo uma criança ligada à Força.', poster: '', backdrop: '', director: 'Jon Favreau',
+    genres: ['Ação', 'Aventura', 'Ficção científica'], description: 'Um caçador de recompensas atravessa a galáxia protegendo uma criança ligada à Força.', poster: './img/mandalorian.jpg', backdrop: './img/mandalorian.jpg', director: 'Jon Favreau',
     cast: ['Pedro Pascal', 'Carl Weathers', 'Gina Carano', 'Giancarlo Esposito'], classification: '12', featured: true,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -177,7 +176,7 @@ export const series = [
   },
   {
     id: 's13', type: 'series', title: 'The Last of Us', originalTitle: 'The Last of Us', year: 2023, rating: 8.7, duration: 55,
-    genres: ['Drama', 'Ação', 'Terror'], description: 'Vinte anos após uma pandemia devastadora, Joel precisa escoltar Ellie por um território hostil.', poster: '', backdrop: '', director: 'Craig Mazin, Neil Druckmann',
+    genres: ['Drama', 'Ação', 'Terror'], description: 'Vinte anos após uma pandemia devastadora, Joel precisa escoltar Ellie por um território hostil.', poster: './img/last.jpg', backdrop: './img/last.jpg', director: 'Craig Mazin, Neil Druckmann',
     cast: ['Pedro Pascal', 'Bella Ramsey', 'Anna Torv', 'Murray Bartlett'], classification: '16', featured: true,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -188,7 +187,7 @@ export const series = [
   },
   {
     id: 's14', type: 'series', title: 'Succession', originalTitle: 'Succession', year: 2018, rating: 8.9, duration: 60,
-    genres: ['Drama', 'Comédia', 'Crime'], description: 'Os filhos de um magnata da mídia disputam o controle do império familiar enquanto a saúde do patriarca declina.', poster: '', backdrop: '', director: 'Jesse Armstrong',
+    genres: ['Drama', 'Comédia', 'Crime'], description: 'Os filhos de um magnata da mídia disputam o controle do império familiar enquanto a saúde do patriarca declina.', poster: './img/succession.jpg', backdrop: './img/succession.jpg', director: 'Jesse Armstrong',
     cast: ['Brian Cox', 'Jeremy Strong', 'Sarah Snook', 'Kieran Culkin'], classification: '16', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -200,7 +199,7 @@ export const series = [
   },
   {
     id: 's15', type: 'series', title: 'Fargo', originalTitle: 'Fargo', year: 2014, rating: 8.9, duration: 50,
-    genres: ['Crime', 'Drama', 'Thriller'], description: 'Antologias criminais ambientadas no meio-oeste americano revelam violência, acaso e humor sombrio.', poster: '', backdrop: '', director: 'Noah Hawley',
+    genres: ['Crime', 'Drama', 'Thriller'], description: 'Antologias criminais ambientadas no meio-oeste americano revelam violência, acaso e humor sombrio.', poster: './img/fargo.jpg', backdrop: './img/fargo.jpg', director: 'Noah Hawley',
     cast: ['Billy Bob Thornton', 'Martin Freeman', 'Allison Tolman', 'Kirsten Dunst'], classification: '16', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -212,7 +211,7 @@ export const series = [
   },
   {
     id: 's16', type: 'series', title: 'Twin Peaks', originalTitle: 'Twin Peaks', year: 1990, rating: 8.8, duration: 47,
-    genres: ['Mistério', 'Drama', 'Terror'], description: 'Um agente do FBI investiga o assassinato de uma adolescente em uma cidade cheia de segredos e estranhezas.', poster: '', backdrop: '', director: 'Mark Frost, David Lynch',
+    genres: ['Mistério', 'Drama', 'Terror'], description: 'Um agente do FBI investiga o assassinato de uma adolescente em uma cidade cheia de segredos e estranhezas.', poster: './img/twin.jpg', backdrop: './img/twin.jpg', director: 'Mark Frost, David Lynch',
     cast: ['Kyle MacLachlan', 'Sheryl Lee', 'Michael Ontkean', 'Lara Flynn Boyle'], classification: '16', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -224,7 +223,7 @@ export const series = [
   },
   {
     id: 's17', type: 'series', title: 'Black Mirror', originalTitle: 'Black Mirror', year: 2011, rating: 8.7, duration: 60,
-    genres: ['Ficção científica', 'Drama', 'Thriller'], description: 'Histórias independentes exploram as consequências sombrias da tecnologia e do comportamento humano.', poster: '', backdrop: '', director: 'Charlie Brooker',
+    genres: ['Ficção científica', 'Drama', 'Thriller'], description: 'Histórias independentes exploram as consequências sombrias da tecnologia e do comportamento humano.', poster: './img/black.jpg', backdrop: './img/black.jpg', director: 'Charlie Brooker',
     cast: ['Daniel Lapaine', 'Jon Hamm', 'Bryce Dallas Howard', 'Mackenzie Davis'], classification: '16', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -236,7 +235,7 @@ export const series = [
   },
   {
     id: 's18', type: 'series', title: 'Mindhunter', originalTitle: 'Mindhunter', year: 2017, rating: 8.6, duration: 53,
-    genres: ['Crime', 'Drama', 'Thriller'], description: 'Agentes do FBI entrevistam assassinos serializados para desenvolver novas técnicas de análise criminal.', poster: '', backdrop: '', director: 'Joe Penhall',
+    genres: ['Crime', 'Drama', 'Thriller'], description: 'Agentes do FBI entrevistam assassinos serializados para desenvolver novas técnicas de análise criminal.', poster: './img/mindhunter.jpg', backdrop: './img/mindhunter.jpg', director: 'Joe Penhall',
     cast: ['Jonathan Groff', 'Holt McCallany', 'Anna Torv', 'Cameron Britton'], classification: '18', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -248,7 +247,7 @@ export const series = [
   },
   {
     id: 's19', type: 'series', title: 'Peaky Blinders', originalTitle: 'Peaky Blinders', year: 2013, rating: 8.8, duration: 58,
-    genres: ['Drama', 'Crime'], description: 'Uma família criminosa de Birmingham expande seus negócios enquanto enfrenta rivais e autoridades.', poster: '', backdrop: '', director: 'Steven Knight',
+    genres: ['Drama', 'Crime'], description: 'Uma família criminosa de Birmingham expande seus negócios enquanto enfrenta rivais e autoridades.', poster: './img/peaky.jpg', backdrop: './img/peaky.jpg', director: 'Steven Knight',
     cast: ['Cillian Murphy', 'Helen McCrory', 'Paul Anderson', 'Tom Hardy'], classification: '16', featured: true,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -260,7 +259,7 @@ export const series = [
   },
   {
     id: 's20', type: 'series', title: 'Better Call Saul', originalTitle: 'Better Call Saul', year: 2015, rating: 9.0, duration: 46,
-    genres: ['Drama', 'Crime'], description: 'O advogado Jimmy McGill percorre um caminho tortuoso até se tornar o inescrupuloso Saul Goodman.', poster: '', backdrop: '', director: 'Vince Gilligan, Peter Gould',
+    genres: ['Drama', 'Crime'], description: 'O advogado Jimmy McGill percorre um caminho tortuoso até se tornar o inescrupuloso Saul Goodman.', poster: './img/better.jpg', backdrop: './img/better.jpg', director: 'Vince Gilligan, Peter Gould',
     cast: ['Bob Odenkirk', 'Rhea Seehorn', 'Jonathan Banks', 'Giancarlo Esposito'], classification: '16', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -272,7 +271,7 @@ export const series = [
   },
   {
     id: 's21', type: 'series', title: 'Mr. Robot', originalTitle: 'Mr. Robot', year: 2015, rating: 8.5, duration: 49,
-    genres: ['Drama', 'Thriller', 'Crime'], description: 'Um engenheiro de cibersegurança é recrutado por um grupo hacktivista para derrubar o sistema financeiro.', poster: '', backdrop: '', director: 'Sam Esmail',
+    genres: ['Drama', 'Thriller', 'Crime'], description: 'Um engenheiro de cibersegurança é recrutado por um grupo hacktivista para derrubar o sistema financeiro.', poster: './img/mr.jpg', backdrop: './img/mr.jpg', director: 'Sam Esmail',
     cast: ['Rami Malek', 'Christian Slater', 'Carly Chaikin', 'Portia Doubleday'], classification: '16', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -284,7 +283,7 @@ export const series = [
   },
   {
     id: 's22', type: 'series', title: 'The Haunting of Hill House', originalTitle: 'The Haunting of Hill House', year: 2018, rating: 8.5, duration: 55,
-    genres: ['Terror', 'Drama', 'Mistério'], description: 'Irmãos adultos enfrentam as memórias da casa assombrada onde cresceram e os traumas que os separaram.', poster: '', backdrop: '', director: 'Mike Flanagan',
+    genres: ['Terror', 'Drama', 'Mistério'], description: 'Irmãos adultos enfrentam as memórias da casa assombrada onde cresceram e os traumas que os separaram.', poster: './img/haunting.jpg', backdrop: './img/haunting.jpg', director: 'Mike Flanagan',
     cast: ['Michiel Huisman', 'Carla Gugino', 'Elizabeth Reaser', 'Victoria Pedretti'], classification: '16', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -294,7 +293,7 @@ export const series = [
   },
   {
     id: 's23', type: 'series', title: 'The Good Place', originalTitle: 'The Good Place', year: 2016, rating: 8.2, duration: 22,
-    genres: ['Comédia', 'Fantasia'], description: 'Uma mulher percebe que foi parar no lugar errado após a morte e tenta se tornar uma pessoa melhor.', poster: '', backdrop: '', director: 'Michael Schur',
+    genres: ['Comédia', 'Fantasia'], description: 'Uma mulher percebe que foi parar no lugar errado após a morte e tenta se tornar uma pessoa melhor.', poster: './img/good.jpg', backdrop: './img/good.jpg', director: 'Michael Schur',
     cast: ['Kristen Bell', 'Ted Danson', 'William Jackson Harper', 'Jameela Jamil'], classification: '12', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -306,7 +305,7 @@ export const series = [
   },
   {
     id: 's24', type: 'series', title: 'Atlanta', originalTitle: 'Atlanta', year: 2016, rating: 8.6, duration: 25,
-    genres: ['Comédia', 'Drama'], description: 'Um jovem tenta administrar a carreira musical do primo e as contradições da vida em Atlanta.', poster: '', backdrop: '', director: 'Donald Glover',
+    genres: ['Comédia', 'Drama'], description: 'Um jovem tenta administrar a carreira musical do primo e as contradições da vida em Atlanta.', poster: './img/atlanta.jpg', backdrop: './img/atlanta.jpg', director: 'Donald Glover',
     cast: ['Donald Glover', 'Brian Tyree Henry', 'LaKeith Stanfield', 'Zazie Beetz'], classification: '16', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -318,7 +317,7 @@ export const series = [
   },
   {
     id: 's25', type: 'series', title: 'BoJack Horseman', originalTitle: 'BoJack Horseman', year: 2014, rating: 8.8, duration: 25,
-    genres: ['Animação', 'Comédia', 'Drama'], description: 'Um astro decadente de uma sitcom tenta recuperar a carreira enquanto enfrenta vícios e vazio existencial.', poster: '', backdrop: '', director: 'Raphael Bob-Waksberg',
+    genres: ['Animação', 'Comédia', 'Drama'], description: 'Um astro decadente de uma sitcom tenta recuperar a carreira enquanto enfrenta vícios e vazio existencial.', poster: './img/bojack.jpg', backdrop: './img/bojack.jpg', director: 'Raphael Bob-Waksberg',
     cast: ['Will Arnett', 'Alison Brie', 'Aaron Paul', 'Amy Sedaris'], classification: '16', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -330,7 +329,7 @@ export const series = [
   },
   {
     id: 's26', type: 'series', title: 'Arcane', originalTitle: 'Arcane', year: 2021, rating: 9.0, duration: 40,
-    genres: ['Animação', 'Ação', 'Fantasia'], description: 'Duas irmãs são separadas por um conflito entre a cidade rica de Piltover e o submundo de Zaun.', poster: '', backdrop: '', director: 'Christian Linke, Alex Yee',
+    genres: ['Animação', 'Ação', 'Fantasia'], description: 'Duas irmãs são separadas por um conflito entre a cidade rica de Piltover e o submundo de Zaun.', poster: './img/arcane.jpg', backdrop: './img/arcane.jpg', director: 'Christian Linke, Alex Yee',
     cast: ['Hailee Steinfeld', 'Ella Purnell', 'Kevin Alejandro', 'Jason Spisak'], classification: '16', featured: true,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -341,7 +340,7 @@ export const series = [
   },
   {
     id: 's27', type: 'series', title: 'Cowboy Bebop', originalTitle: 'Kaubōi Bibappu', year: 1998, rating: 8.9, duration: 24,
-    genres: ['Animação', 'Ação', 'Ficção científica'], description: 'Caçadores de recompensas viajam pelo sistema solar atrás de criminosos e de seus próprios passados.', poster: '', backdrop: '', director: 'Hajime Yatate',
+    genres: ['Animação', 'Ação', 'Ficção científica'], description: 'Caçadores de recompensas viajam pelo sistema solar atrás de criminosos e de seus próprios passados.', poster: './img/cowboy.jpg', backdrop: './img/cowboy.jpg', director: 'Hajime Yatate',
     cast: ['Kōichi Yamadera', 'Unshō Ishizuka', 'Megumi Hayashibara'], classification: '14', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -353,7 +352,7 @@ export const series = [
   },
   {
     id: 's28', type: 'series', title: 'Kingdom', originalTitle: '킹덤', year: 2019, rating: 8.3, duration: 50,
-    genres: ['Terror', 'Ação', 'Drama'], description: 'Na Coreia da era Joseon, um príncipe investiga uma epidemia que transforma os mortos em monstros.', poster: '', backdrop: '', director: 'Kim Eun-hee, Kim Seong-hun',
+    genres: ['Terror', 'Ação', 'Drama'], description: 'Na Coreia da era Joseon, um príncipe investiga uma epidemia que transforma os mortos em monstros.', poster: './img/kingdom.jpg', backdrop: './img/kingdom.jpg', director: 'Kim Eun-hee, Kim Seong-hun',
     cast: ['Ju Ji-hoon', 'Bae Doona', 'Ryu Seung-ryong', 'Kim Sang-ho'], classification: '16', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -365,7 +364,7 @@ export const series = [
   },
   {
     id: 's29', type: 'series', title: 'Borgen', originalTitle: 'Borgen', year: 2010, rating: 8.5, duration: 58,
-    genres: ['Drama', 'Político'], description: 'Uma política dinamarquesa chega ao cargo de primeira-ministra e enfrenta os custos pessoais do poder.', poster: '', backdrop: '', director: 'Adam Price',
+    genres: ['Drama', 'Político'], description: 'Uma política dinamarquesa chega ao cargo de primeira-ministra e enfrenta os custos pessoais do poder.', poster: './img/borgen.jpg', backdrop: './img/borgen.jpg', director: 'Adam Price',
     cast: ['Sidse Babett Knudsen', 'Birgitte Hjort Sørensen', 'Pilou Asbæk'], classification: '14', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -377,7 +376,7 @@ export const series = [
   },
   {
     id: 's30', type: 'series', title: 'Gomorra', originalTitle: 'Gomorra - La serie', year: 2014, rating: 8.6, duration: 50,
-    genres: ['Crime', 'Drama', 'Thriller'], description: 'Uma disputa pelo controle de uma organização criminosa napolitana envolve lealdades, ambição e violência.', poster: '', backdrop: '', director: 'Roberto Saviano',
+    genres: ['Crime', 'Drama', 'Thriller'], description: 'Uma disputa pelo controle de uma organização criminosa napolitana envolve lealdades, ambição e violência.', poster: './img/gomorra.jpg', backdrop: './img/gomorra.jpg', director: 'Roberto Saviano',
     cast: ['Marco D\'Amore', 'Salvatore Esposito', 'Fortunato Cerlino', 'Maria Pia Calzone'], classification: '18', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
