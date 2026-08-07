@@ -61,17 +61,19 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
   object-fit: cover;
 }
 
+/* Card General Layout & Hover */
 .card {
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.6);
-  border-color: rgba(230, 59, 69, 0.3);
+  border-color: rgba(230, 59, 69, 0.4);
 }
 
+/* Horizontal Scroll Row Cards (Home page carousels) */
 .scroll-row {
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
@@ -79,6 +81,27 @@ button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible
 
 .scroll-row > * {
   scroll-snap-align: start;
+}
+
+.scroll-row > .card {
+  width: 155px;
+  min-width: 155px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .scroll-row > .card {
+    width: 185px;
+    min-width: 185px;
+  }
+}
+
+/* Grid Cards (Catalog & Collections like Watchlist/Favorites) */
+[data-grid] > .card,
+[data-collection-grid] > .card,
+[data-search-results] .card {
+  width: 100%;
+  min-width: 0;
 }
 
 /* Custom Scrollbars */

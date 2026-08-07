@@ -67,24 +67,24 @@ export function card(x) {
   const isSeries = x.type === 'series';
 
   return `
-    <article class="card group relative flex flex-col overflow-hidden rounded-xl bg-card">
-      <a href="${detailUrl(x.id)}" aria-label="Ver detalhes de ${escapeHtml(x.title)}" class="block flex-1 overflow-hidden">
-        <div class="relative w-full overflow-hidden pt-[150%]">
-          <img 
-            class="poster absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" 
-            src="${x.poster}" 
-            alt="Pôster de ${escapeHtml(x.title)}" 
-            loading="lazy"
-            onerror="this.src='https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=600&q=85'"
-          >
-          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/80 to-transparent px-3 pb-3 pt-12">
-            <div class="flex items-center gap-1.5 mb-1">
-              <span class="rounded bg-white/10 px-1.5 py-0.5 text-[10px] font-semibold text-zinc-300 uppercase">${isSeries ? 'Série' : 'Filme'}</span>
-              <span class="text-xs text-amber-300 font-semibold">★ ${formatRating(x.rating)}</span>
-            </div>
-            <h3 class="truncate text-sm font-semibold text-white group-hover:text-accent transition-colors">${escapeHtml(x.title)}</h3>
-            <p class="mt-0.5 text-xs text-zinc-400">${x.year}</p>
+    <article class="card group relative flex flex-col overflow-hidden rounded-xl bg-card border border-white/10 shadow-md">
+      <a href="${detailUrl(x.id)}" aria-label="Ver detalhes de ${escapeHtml(x.title)}" class="relative block w-full overflow-hidden aspect-[2/3]">
+        <img 
+          class="poster absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" 
+          src="${x.poster}" 
+          alt="Pôster de ${escapeHtml(x.title)}" 
+          loading="lazy"
+          onerror="this.src='https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=600&q=85'"
+        >
+        
+        <!-- Gradient Overlay & Info -->
+        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/80 to-transparent p-3 pt-12 transition-opacity">
+          <div class="flex items-center gap-1.5 mb-1">
+            <span class="rounded bg-white/10 px-1.5 py-0.5 text-[10px] font-semibold text-zinc-300 uppercase">${isSeries ? 'Série' : 'Filme'}</span>
+            <span class="text-xs text-amber-300 font-semibold">★ ${formatRating(x.rating)}</span>
           </div>
+          <h3 class="truncate text-sm font-semibold text-white group-hover:text-accent transition-colors">${escapeHtml(x.title)}</h3>
+          <p class="mt-0.5 text-xs text-zinc-400">${x.year}</p>
         </div>
       </a>
 
@@ -95,7 +95,7 @@ export function card(x) {
           data-id="${x.id}" 
           aria-label="${fav ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}" 
           title="${fav ? 'Favoritado' : 'Favoritar'}"
-          class="flex h-8 w-8 items-center justify-center rounded-full bg-black/60 backdrop-blur-md text-sm transition hover:scale-110 ${fav ? 'text-accent bg-accent/20 border border-accent/40' : 'text-white hover:bg-black/80'}"
+          class="flex h-8 w-8 items-center justify-center rounded-full bg-black/70 backdrop-blur-md text-sm transition hover:scale-110 ${fav ? 'text-accent bg-accent/20 border border-accent/40' : 'text-white hover:bg-black/90'}"
         >
           ${fav ? icon.heartFilled : icon.heartEmpty}
         </button>
@@ -105,7 +105,7 @@ export function card(x) {
           data-id="${x.id}" 
           aria-label="${list ? 'Remover da minha lista' : 'Adicionar à minha lista'}" 
           title="${list ? 'Na Minha Lista' : 'Adicionar à Minha Lista'}"
-          class="flex h-8 w-8 items-center justify-center rounded-full bg-black/60 backdrop-blur-md text-sm transition hover:scale-110 ${list ? 'text-emerald-400 bg-emerald-500/20 border border-emerald-500/40' : 'text-white hover:bg-black/80'}"
+          class="flex h-8 w-8 items-center justify-center rounded-full bg-black/70 backdrop-blur-md text-sm transition hover:scale-110 ${list ? 'text-emerald-400 bg-emerald-500/20 border border-emerald-500/40' : 'text-white hover:bg-black/90'}"
         >
           ${list ? icon.check : icon.plus}
         </button>
@@ -124,7 +124,7 @@ export function card(x) {
 
 export function empty(title, text, actionText = null, actionHref = null) {
   return `
-    <section class="rounded-2xl border border-dashed border-zinc-800 bg-panel px-6 py-16 text-center">
+    <section class="col-span-full rounded-2xl border border-dashed border-zinc-800 bg-panel px-6 py-16 text-center">
       <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-zinc-900/80 text-2xl text-zinc-500">
         🎬
       </div>
