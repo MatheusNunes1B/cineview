@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">CineView</string>
+    <string name="title_activity_main">CineView</string>
+    <string name="package_name">com.cineview</string>
+    <string name="custom_url_scheme">com.cineview</string>
+</resources>
