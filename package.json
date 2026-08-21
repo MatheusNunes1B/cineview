@@ -1,0 +1,27 @@
+{
+  "name": "cineview",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatheusNunes1B/cineview.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatheusNunes1B/cineview/issues"
+  },
+  "homepage": "https://github.com/MatheusNunes1B/cineview#readme",
+  "description": "",
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.0",
+    "@capacitor/core": "^8.5.0"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.0"
+  }
+}
