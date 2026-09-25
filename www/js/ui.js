@@ -42,6 +42,7 @@ export function header(currentPage) {
         </div>
 
         <div class="flex items-center gap-2">
+          <button data-account class="rounded-lg border border-white/10 px-3 py-1.5 text-sm">Entrar</button>
           <button data-open-search aria-label="Abrir pesquisa"
             class="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-zinc-400 transition hover:border-white/20 hover:bg-white/10 hover:text-white">
             <span class="text-base leading-none">${icon.search}</span>
@@ -165,7 +166,7 @@ export function footer() {
           <div class="flex flex-wrap justify-center gap-x-6 gap-y-1 text-xs text-zinc-600">
             <span>HTML5 + Tailwind CSS</span><span>·</span>
             <span>Vanilla JavaScript</span><span>·</span>
-            <span>LocalStorage</span>
+            <span>Sua coleção de cinema</span>
           </div>
         </div>
       </div>
@@ -191,7 +192,7 @@ export function showToast(message, type = 'info') {
 
   const toast = document.createElement('div');
   toast.className = `toast ${colorMap[type] || colorMap.info}`;
-  toast.innerHTML = `<span class="shrink-0 text-sm">${iconMap[type] || iconMap.info}</span><span>${message}</span>`;
+  toast.innerHTML = `<span class="shrink-0 text-sm">${iconMap[type] || iconMap.info}</span><span>${escapeHtml(message)}</span>`;
   container.appendChild(toast);
 
   setTimeout(() => {

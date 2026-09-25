@@ -1,5 +1,5 @@
-import { movies } from '../data/movies.js';
-import { series } from '../data/series.js';
+import { initializeStorage } from './storage.js';
+import { attachAccount } from './account.js';
 import { header, searchModal, footer, showToast } from './ui.js';
 import { homePage, attachHome } from './home.js';
 import { detailsPage } from './details.js';
@@ -15,7 +15,9 @@ import {
 import { params } from './utils.js';
 import { attachSearch } from './search.js';
 
-const all  = [...movies, ...series];
+export async function mountCineview(all) {
+const movies = all.filter(item => item.type === 'movie');
+const series = all.filter(item => item.type === 'series');
 const page = document.body.dataset.page || 'home';
 const app  = document.querySelector('#app');
 
@@ -45,7 +47,17 @@ function renderApp() {
 }
 
 // ─── Initial render ──────────────────────────────────────────────────────────
+let startupError;
+try { await initializeStorage(); } catch (error) { startupError = error; }
 renderApp();
+attachAccount(all);
+if (startupError) {
+  const notice = document.createElement('div');
+  notice.setAttribute('role', 'alert');
+  notice.className = 'bg-red-950 text-red-100 p-4 text-center';
+  notice.textContent = 'Não foi possível conectar à sua conta. Verifique a conexão e recarregue a página. Suas alterações estão bloqueadas até a conexão ser restabelecida.';
+  app.prepend(notice);
+}
 
 // ─── Page-specific controllers ───────────────────────────────────────────────
 if (page === 'home')                                   attachHome();
@@ -71,7 +83,7 @@ requestAnimationFrame(() => {
 /* ====================================================
    GLOBAL CLICK HANDLER
    ==================================================== */
-document.addEventListener('click', e => {
+document.addEventListener('click', async e => {
   // ── Mobile Menu Toggle ──────────────────────────────
   const menuBtn = e.target.closest('[data-menu]');
   if (menuBtn) {
@@ -94,37 +106,45 @@ document.addEventListener('click', e => {
   const item      = all.find(x => x.id === id);
   const itemTitle = item ? item.title : 'Item';
 
-  if (action === 'favorite') {
-    const added = addFavorite(id);
-    showToast(
-      added ? `"${itemTitle}" adicionado aos Favoritos!` : `"${itemTitle}" removido dos Favoritos!`,
-      added ? 'accent' : 'info'
-    );
-  } else if (action === 'watchlist') {
-    const added = addToWatchlist(id);
-    showToast(
-      added ? `"${itemTitle}" adicionado à Minha Lista!` : `"${itemTitle}" removido da Minha Lista!`,
-      added ? 'success' : 'info'
-    );
-  } else if (action === 'watched') {
-    const added = markAsWatched(id);
-    showToast(
-      added ? `"${itemTitle}" marcado como Assistido!` : `"${itemTitle}" desmarcado de Assistido.`,
-      added ? 'success' : 'info'
-    );
-  }
-
-  // Re-render details hero if we're on the details page
-  if (page === 'details') {
-    const targetId     = params().get('id');
-    const selectedItem = all.find(x => x.id === targetId);
-    const mainEl       = document.querySelector('main');
-    if (mainEl && selectedItem) {
-      const tempDiv = document.createElement('div');
-      tempDiv.innerHTML = detailsPage(selectedItem, all);
-      mainEl.replaceWith(tempDiv.firstElementChild);
+  if (actionBtn.disabled) return;
+  actionBtn.disabled = true;
+  try {
+    if (action === 'favorite') {
+      const added = await addFavorite(id);
+      showToast(
+        added ? `"${itemTitle}" adicionado aos Favoritos!` : `"${itemTitle}" removido dos Favoritos!`,
+        added ? 'accent' : 'info'
+      );
+    } else if (action === 'watchlist') {
+      const added = await addToWatchlist(id);
+      showToast(
+        added ? `"${itemTitle}" adicionado à Minha Lista!` : `"${itemTitle}" removido da Minha Lista!`,
+        added ? 'success' : 'info'
+      );
+    } else if (action === 'watched') {
+      const added = await markAsWatched(id);
+      showToast(
+        added ? `"${itemTitle}" marcado como Assistido!` : `"${itemTitle}" desmarcado de Assistido.`,
+        added ? 'success' : 'info'
+      );
     }
-  }
+
+    // Re-render details hero if we're on the details page
+    if (page === 'details') {
+      const targetId     = params().get('id');
+      const selectedItem = all.find(x => x.id === targetId);
+      const mainEl       = document.querySelector('main');
+      if (mainEl && selectedItem) {
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = detailsPage(selectedItem, all);
+        mainEl.replaceWith(tempDiv.firstElementChild);
+      }
+    }
+  } catch (error) {
+    showToast(error.message || 'Não foi possível salvar. Tente novamente.');
+  } finally { actionBtn.disabled = false; }
 });
 
 
+
+}

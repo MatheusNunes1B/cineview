@@ -1,16 +1,7 @@
 # CineView
 
-Uma plataforma pessoal, responsiva e cinematográfica para descobrir e organizar filmes e séries. Construída somente com HTML5, Tailwind CSS (CDN), JavaScript ES Modules e `localStorage`.
+Filmes e séries são consultados no Supabase. Se a conexão falhar, o app apresenta um erro e não mostra um catálogo local. Favoritos, lista e assistidos são salvos na conta autenticada.
 
-## Executar
+Execute npm install e npm run dev. Configure .env.local e aplique o SQL conforme [o guia do backend](../supabase/README.md).
 
-Abra `index.html` com um servidor local (por exemplo, a extensão Live Server). Nenhuma instalação é necessária.
-
-## Estrutura
-
-- `data/`: catálogo mockado separado por tipo;
-- `js/storage.js`: persistência centralizada;
-- `js/ui.js`: componentes reutilizáveis;
-- `js/pages.js` e módulos de página: composição e comportamento.
-
-A separação de dados, persistência, renderização e eventos facilita uma futura migração para React/Vite sem incluir essas tecnologias agora.
+Use npm test para os testes locais, npm run build para gerar dist e npm run android:sync para sincronizar o Android.

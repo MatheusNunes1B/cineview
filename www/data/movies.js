@@ -409,7 +409,7 @@ export const movies = [
     duration: 157,
     genres: ['Crime', 'Mistério', 'Thriller'],
     description: 'Jornalistas e investigadores ficam obcecados em identificar um assassino que desafia a polícia com cartas e códigos.',
-    poster: '../img/zodiaco.jpg', backdrop: '../img/zodiaco.jpg',
+    poster: './img/zodiaco.jpg', backdrop: './img/zodiaco.jpg',
     director: 'David Fincher',
     cast: ['Jake Gyllenhaal', 'Mark Ruffalo', 'Robert Downey Jr.'],
     classification: '16'

@@ -62,7 +62,7 @@ export const series = [
   },
   {
     id: 's4', type: 'series', title: 'Dark', originalTitle: 'Dark', year: 2017, rating: 8.7, duration: 55,
-    genres: ['Ficção científica', 'Mistério', 'Drama'], description: 'O desaparecimento de uma criança revela segredos e ciclos temporais que atravessam gerações em uma pequena cidade alemã.', poster: './img/darkk.jpg', backdrop: './img/darkk.jpg',
+    genres: ['Ficção científica', 'Mistério', 'Drama'], description: 'O desaparecimento de uma criança revela segredos e ciclos temporais que atravessam gerações em uma pequena cidade alemã.', poster: './img/Darkk.jpg', backdrop: './img/Darkk.jpg',
     director: 'Baran bo Odar, Jantje Friese', cast: ['Louis Hofmann', 'Lisa Vicari', 'Andreas Pietschmann'], classification: '16', featured: true,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -88,7 +88,7 @@ export const series = [
   },
   {
     id: 's6', type: 'series', title: 'The Sopranos', originalTitle: 'The Sopranos', year: 1999, rating: 9.2, duration: 55,
-    genres: ['Drama', 'Crime'], description: 'Um chefe da máfia de Nova Jersey tenta equilibrar a vida criminosa, a família e sessões de terapia.', poster: './img/Sopranos.jpg', backdrop: './img/Sopranos.jpg',
+    genres: ['Drama', 'Crime'], description: 'Um chefe da máfia de Nova Jersey tenta equilibrar a vida criminosa, a família e sessões de terapia.', poster: './img/sopranos.jpg', backdrop: './img/sopranos.jpg',
     director: 'David Chase', cast: ['James Gandolfini', 'Edie Falco', 'Lorraine Bracco', 'Michael Imperioli'], classification: '18', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -305,7 +305,7 @@ export const series = [
   },
   {
     id: 's24', type: 'series', title: 'Atlanta', originalTitle: 'Atlanta', year: 2016, rating: 8.6, duration: 25,
-    genres: ['Comédia', 'Drama'], description: 'Um jovem tenta administrar a carreira musical do primo e as contradições da vida em Atlanta.', poster: './img/atlanta.jpg', backdrop: './img/atlanta.jpg', director: 'Donald Glover',
+    genres: ['Comédia', 'Drama'], description: 'Um jovem tenta administrar a carreira musical do primo e as contradições da vida em Atlanta.', poster: './img/Atlanta.jpg', backdrop: './img/Atlanta.jpg', director: 'Donald Glover',
     cast: ['Donald Glover', 'Brian Tyree Henry', 'LaKeith Stanfield', 'Zazie Beetz'], classification: '16', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -329,7 +329,7 @@ export const series = [
   },
   {
     id: 's26', type: 'series', title: 'Arcane', originalTitle: 'Arcane', year: 2021, rating: 9.0, duration: 40,
-    genres: ['Animação', 'Ação', 'Fantasia'], description: 'Duas irmãs são separadas por um conflito entre a cidade rica de Piltover e o submundo de Zaun.', poster: './img/arcane.jpg', backdrop: './img/arcane.jpg', director: 'Christian Linke, Alex Yee',
+    genres: ['Animação', 'Ação', 'Fantasia'], description: 'Duas irmãs são separadas por um conflito entre a cidade rica de Piltover e o submundo de Zaun.', poster: './img/Arcane.jpg', backdrop: './img/Arcane.jpg', director: 'Christian Linke, Alex Yee',
     cast: ['Hailee Steinfeld', 'Ella Purnell', 'Kevin Alejandro', 'Jason Spisak'], classification: '16', featured: true,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -352,7 +352,7 @@ export const series = [
   },
   {
     id: 's28', type: 'series', title: 'Kingdom', originalTitle: '킹덤', year: 2019, rating: 8.3, duration: 50,
-    genres: ['Terror', 'Ação', 'Drama'], description: 'Na Coreia da era Joseon, um príncipe investiga uma epidemia que transforma os mortos em monstros.', poster: './img/kingdom.jpg', backdrop: './img/kingdom.jpg', director: 'Kim Eun-hee, Kim Seong-hun',
+    genres: ['Terror', 'Ação', 'Drama'], description: 'Na Coreia da era Joseon, um príncipe investiga uma epidemia que transforma os mortos em monstros.', poster: './img/Kingdom.jpg', backdrop: './img/Kingdom.jpg', director: 'Kim Eun-hee, Kim Seong-hun',
     cast: ['Ju Ji-hoon', 'Bae Doona', 'Ryu Seung-ryong', 'Kim Sang-ho'], classification: '16', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -364,7 +364,7 @@ export const series = [
   },
   {
     id: 's29', type: 'series', title: 'Borgen', originalTitle: 'Borgen', year: 2010, rating: 8.5, duration: 58,
-    genres: ['Drama', 'Político'], description: 'Uma política dinamarquesa chega ao cargo de primeira-ministra e enfrenta os custos pessoais do poder.', poster: './img/borgen.jpg', backdrop: './img/borgen.jpg', director: 'Adam Price',
+    genres: ['Drama', 'Político'], description: 'Uma política dinamarquesa chega ao cargo de primeira-ministra e enfrenta os custos pessoais do poder.', poster: './img/Borgen.jpg', backdrop: './img/Borgen.jpg', director: 'Adam Price',
     cast: ['Sidse Babett Knudsen', 'Birgitte Hjort Sørensen', 'Pilou Asbæk'], classification: '14', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
@@ -376,7 +376,7 @@ export const series = [
   },
   {
     id: 's30', type: 'series', title: 'Gomorra', originalTitle: 'Gomorra - La serie', year: 2014, rating: 8.6, duration: 50,
-    genres: ['Crime', 'Drama', 'Thriller'], description: 'Uma disputa pelo controle de uma organização criminosa napolitana envolve lealdades, ambição e violência.', poster: './img/gomorra.jpg', backdrop: './img/gomorra.jpg', director: 'Roberto Saviano',
+    genres: ['Crime', 'Drama', 'Thriller'], description: 'Uma disputa pelo controle de uma organização criminosa napolitana envolve lealdades, ambição e violência.', poster: './img/Gomorra.jpg', backdrop: './img/Gomorra.jpg', director: 'Roberto Saviano',
     cast: ['Marco D\'Amore', 'Salvatore Esposito', 'Fortunato Cerlino', 'Maria Pia Calzone'], classification: '18', featured: false,
     seasons: [{
       number: 1, name: '1ª Temporada', episodes: [
