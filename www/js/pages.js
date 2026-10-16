@@ -69,7 +69,7 @@ export function catalogPage(items, name) {
 /* ====================================================
    ATTACH CATALOG – filtering + pagination + reveal
    ==================================================== */
-export function attachCatalog(items) {
+export function attachCatalog(items, scope) {
   let state = { q: '', genre: 'all', year: 'all', rating: 'all', status: 'all', sort: 'recent' };
   let currentPage = 1;
 
@@ -85,7 +85,7 @@ export function attachCatalog(items) {
     const cards = gridEl ? gridEl.querySelectorAll('.card') : [];
     if (!cards.length) return;
 
-    revealObserver = new IntersectionObserver((entries) => {
+    revealObserver = scope.observer((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
           e.target.classList.add('revealed');
@@ -127,7 +127,7 @@ export function attachCatalog(items) {
     }
 
     // Animate newly rendered cards
-    requestAnimationFrame(setupReveal);
+    scope.frame(setupReveal);
 
     // Scroll to top of grid smoothly
     gridEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -143,11 +143,11 @@ export function attachCatalog(items) {
     }
   };
 
-  document.addEventListener('input',  handleFilterChange);
-  document.addEventListener('change', handleFilterChange);
+  scope.on(document, 'input',  handleFilterChange);
+  scope.on(document, 'change', handleFilterChange);
 
   /* Pagination click + clear filters */
-  document.addEventListener('click', e => {
+  scope.on(document, 'click', e => {
     // Pagination
     const pageBtn = e.target.closest('[data-page]');
     if (pageBtn && !pageBtn.disabled && paginationEl?.contains(pageBtn)) {
@@ -169,7 +169,7 @@ export function attachCatalog(items) {
   });
 
   /* Re-draw on storage change */
-  window.addEventListener('cineview:storage-change', draw);
+  scope.on(window, 'cineview:storage-change', draw);
 
   draw();
 }
@@ -213,7 +213,7 @@ export function collectionPage(all, kind) {
 /* ====================================================
    ATTACH COLLECTION – filtering + pagination
    ==================================================== */
-export function attachCollection(all, kind) {
+export function attachCollection(all, kind, scope) {
   const gridEl       = document.querySelector('[data-collection-grid]');
   const paginationEl = document.querySelector('[data-collection-pagination]');
   let currentFilter  = 'all';
@@ -252,8 +252,8 @@ export function attachCollection(all, kind) {
     }
 
     // Animate cards
-    requestAnimationFrame(() => {
-      const obs = new IntersectionObserver((entries) => {
+    scope.frame(() => {
+      const obs = scope.observer((entries) => {
         entries.forEach(e => {
           if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); }
         });
@@ -265,7 +265,7 @@ export function attachCollection(all, kind) {
     });
   };
 
-  document.addEventListener('click', e => {
+  scope.on(document, 'click', e => {
     // Filter chips
     const btn = e.target.closest('[data-type]');
     if (btn && btn.closest('[data-collection-filter]')) {
@@ -287,6 +287,6 @@ export function attachCollection(all, kind) {
     }
   });
 
-  window.addEventListener('cineview:storage-change', draw);
+  scope.on(window, 'cineview:storage-change', draw);
   draw();
 }

@@ -143,7 +143,7 @@ export function homePage(all) {
 /* ====================================================
    ATTACH HOME – bind carousel nav + scroll reveal
    ==================================================== */
-export function attachHome() {
+export function attachHome(scope) {
   const hero = document.querySelector('[data-hero-carousel]');
 
   if (hero) {
@@ -193,24 +193,24 @@ export function attachHome() {
       if (restartTimer) startAutoPlay();
     };
 
-    previousButton?.addEventListener('click', event => {
+    scope.on(previousButton, 'click', event => {
       event.stopPropagation();
       showSlide(current - 1, true);
     });
 
-    nextButton?.addEventListener('click', event => {
+    scope.on(nextButton, 'click', event => {
       event.stopPropagation();
       showSlide(current + 1, true);
     });
 
     dots.forEach(dot => {
-      dot.addEventListener('click', event => {
+      scope.on(dot, 'click', event => {
         event.stopPropagation();
         showSlide(Number(dot.dataset.heroDot), true);
       });
     });
 
-    slidesArea?.addEventListener('pointerdown', event => {
+    scope.on(slidesArea, 'pointerdown', event => {
       if (!event.isPrimary || event.button !== 0) return;
       if (event.target.closest('a, button')) return;
       pointerId = event.pointerId;
@@ -222,7 +222,7 @@ export function attachHome() {
       slidesArea.setPointerCapture(pointerId);
     });
 
-    slidesArea?.addEventListener('pointermove', event => {
+    scope.on(slidesArea, 'pointermove', event => {
       if (event.pointerId !== pointerId) return;
       const deltaX = event.clientX - startX;
       const deltaY = event.clientY - startY;
@@ -254,18 +254,19 @@ export function attachHome() {
       dragX = 0;
     };
 
-    slidesArea?.addEventListener('pointerup', finishDrag);
-    slidesArea?.addEventListener('pointercancel', finishDrag);
-    document.addEventListener('visibilitychange', () => {
+    scope.on(slidesArea, 'pointerup', finishDrag);
+    scope.on(slidesArea, 'pointercancel', finishDrag);
+    scope.on(document, 'visibilitychange', () => {
       if (document.hidden) stopAutoPlay();
       else startAutoPlay();
     });
 
+    scope.cleanup(stopAutoPlay);
     startAutoPlay();
   }
 
   /* Carousel nav buttons */
-  document.addEventListener('click', e => {
+  scope.on(document, 'click', e => {
     const btn = e.target.closest('[data-nav]');
     if (!btn) return;
 
@@ -282,7 +283,7 @@ export function attachHome() {
   /* Scroll reveal – Intersection Observer */
   const revealEls = document.querySelectorAll('[data-reveal]');
   if (revealEls.length) {
-    const obs = new IntersectionObserver((entries) => {
+    const obs = scope.observer((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
           e.target.classList.add('revealed');

@@ -1,9 +1,5 @@
 import { getClient } from './backend.js';
-
-const kinds = ['favorites', 'watchlist', 'watched'];
-let client = null;
-let user = null;
-let ready = false;
+let client = null, user = null, ready = false, generation = 0;
 let cache = { favorites: [], watchlist: [], watched: [] };
 let queue = Promise.resolve();
 export const getCurrentUser = () => user;
@@ -11,44 +7,53 @@ const read = kind => [...cache[kind]];
 function emit(kind, value) {
   window.dispatchEvent(new CustomEvent('cineview:storage-change', { detail: { key: kind, value } }));
 }
-
-export async function initializeStorage() {
-  client = await getClient();
-  if (!client) throw new Error('Supabase não configurado.');
-  const { data, error } = await client.auth.getSession();
-  if (error) throw error;
-  user = data.session?.user || null;
-  client.auth.onAuthStateChange((_event, session) => {
-    if ((session?.user?.id || null) !== (user?.id || null)) window.location.reload();
-  });
-  if (user) await loadCollections();
+export function resetStorage() {
+  generation++;
+  user = null;
+  ready = false;
+  cache = { favorites: [], watchlist: [], watched: [] };
+  emit('reset', []);
+}
+// AuthProvider restores the session before collections can load.
+export async function initializeStorage(session, signal) {
+  resetStorage();
+  const version = generation;
+  const nextClient = await getClient();
+  if (version !== generation || signal?.aborted) return;
+  client = nextClient;
+  user = session?.user || null;
+  if (user) {
+    if (!client) throw new Error('Supabase não configurado.');
+    const owner = user.id;
+    const next = { favorites: [], watchlist: [], watched: [] };
+    for (let offset = 0; ; offset += 500) {
+      let query = client.from('user_collections').select('kind,title_id').eq('user_id', owner)
+        .order('kind').order('title_id').range(offset, offset + 499);
+      if (signal) query = query.abortSignal(signal);
+      const { data, error } = await query;
+      if (version !== generation || signal?.aborted) return;
+      if (error) throw new Error('Não foi possível carregar suas coleções. Tente novamente.');
+      for (const row of data) next[row.kind]?.push(row.title_id);
+      if (data.length < 500) break;
+    }
+    cache = next;
+  }
   ready = true;
 }
-async function loadCollections() {
-  const next = { favorites: [], watchlist: [], watched: [] };
-  for (let offset = 0; ; offset += 500) {
-    const { data, error } = await client.from('user_collections')
-      .select('kind,title_id').eq('user_id', user.id)
-      .order('kind').order('title_id').range(offset, offset + 499);
-    if (error) throw error;
-    for (const row of data) next[row.kind]?.push(row.title_id);
-    if (data.length < 500) break;
-  }
-  cache = next;
-}
 function change(kind, id, mode = 'toggle') {
+  const version = generation, owner = user?.id;
   const task = queue.then(async () => {
-    if (!ready) throw new Error('Não foi possível carregar sua conta. Recarregue a página.');
-    if (!user) throw new Error('Entre na sua conta para salvar filmes e séries.');
+    if (version !== generation) throw new Error('A conta mudou. Tente novamente.');
+    if (!ready) throw new Error('Não foi possível carregar sua conta. Tente novamente.');
+    if (!owner) throw new Error('Entre na sua conta para salvar filmes e séries.');
     if (typeof id !== 'string' || !id) throw new Error('Título inválido.');
     const current = read(kind);
-    const exists = current.includes(id);
-    const added = mode === 'remove' ? false : !exists;
+    const added = mode === 'remove' ? false : !current.includes(id);
     const query = added
-      ? client.from('user_collections').upsert({ user_id: user.id, title_id: id, kind },
-          { onConflict: 'user_id,title_id,kind' })
-      : client.from('user_collections').delete().eq('user_id', user.id).eq('title_id', id).eq('kind', kind);
+      ? client.from('user_collections').upsert({ user_id: owner, title_id: id, kind }, { onConflict: 'user_id,title_id,kind' })
+      : client.from('user_collections').delete().eq('user_id', owner).eq('title_id', id).eq('kind', kind);
     const { error } = await query;
+    if (version !== generation) throw new Error('A conta mudou. Tente novamente.');
     if (error) throw new Error('Não foi possível salvar no Supabase. Verifique sua conexão.');
     const updated = added ? [...current.filter(value => value !== id), id] : current.filter(value => value !== id);
     cache[kind] = updated;
@@ -69,6 +74,4 @@ export const removeFromWatchlist = id => change('watchlist', id, 'remove');
 export const getWatched = () => read('watched');
 export const isWatched = id => getWatched().includes(id);
 export const markAsWatched = id => change('watched', id);
-export const getStats = () => ({
-  favorites: getFavorites().length, watchlist: getWatchlist().length, watched: getWatched().length
-});
+export const getStats = () => ({ favorites: getFavorites().length, watchlist: getWatchlist().length, watched: getWatched().length });

@@ -2,14 +2,22 @@ import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL?.trim();
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY?.trim();
-
-export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);
-if (supabaseAnonKey?.startsWith('sb_secret_')) {
-  throw new Error('Use a chave pública anon ou publishable do Supabase.');
+function isPublicKey(key) {
+  if (!key || key.startsWith('sb_secret_')) return false;
+  if (key.startsWith('sb_publishable_')) return true;
+  try {
+    const payload = key.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');
+    return JSON.parse(atob(payload)).role === 'anon';
+  } catch { return false; }
 }
-// Permite abrir o catálogo como visitante enquanto .env.local não foi preenchido.
-export const supabase = isSupabaseConfigured
-  ? createClient(supabaseUrl, supabaseAnonKey, {
-      auth: { persistSession: true, storage: window.sessionStorage, autoRefreshToken: true, detectSessionInUrl: true }
+export const isSupabaseConfigured = Boolean(supabaseUrl && isPublicKey(supabaseAnonKey));
+export const supabase = isSupabaseConfigured ? createClient(supabaseUrl, supabaseAnonKey, {
+  // Preferences is the sole durable store; auth state in the SDK is memory-only.
+  auth: { persistSession: false, autoRefreshToken: true, detectSessionInUrl: true },
+  global: {
+    fetch: (input, init = {}) => fetch(input, {
+      ...init,
+      signal: init.signal ? AbortSignal.any([init.signal, AbortSignal.timeout(12000)]) : AbortSignal.timeout(12000)
     })
-  : null;
+  }
+}) : null;

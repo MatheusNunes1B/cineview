@@ -38,9 +38,9 @@ function setup({ user = null, rows = [], fail = false } = {}) {
   const source = fs.readFileSync('www/js/storage.js', 'utf8')
     .replace(/^import .*;\r?\n/, '').replace(/export /g, '');
   const names = ['initializeStorage', 'getFavorites', 'getWatchlist', 'addFavorite',
-    'removeFavorite', 'addToWatchlist', 'getCurrentUser'];
+    'removeFavorite', 'addToWatchlist', 'getCurrentUser', 'resetStorage'];
   vm.runInNewContext(source + '\nglobalThis.api = {' + names.join(',') + '};', context);
-  return { ...context.api, calls, events, state, auth: session => authCallback('SIGNED_IN', session),
+  return { ...context.api, initializeStorage: (session = user ? { user } : null) => context.api.initializeStorage(session), calls, events, state,
     reloads: () => reloads };
 }
 
@@ -65,7 +65,7 @@ test('falha de gravação não altera cache nem emite sucesso', async () => {
   api.state.fail = true;
   await assert.rejects(api.addFavorite('m1'), /salvar/);
   assert.equal(api.getFavorites().length, 0);
-  assert.equal(api.events.length, 0);
+  assert.equal(api.events.filter(event => event.detail.key !== 'reset').length, 0);
 });
 test('falha ao carregar conta bloqueia escrita', async () => {
   const api = setup({ user: { id: 'A' }, fail: true });
@@ -81,13 +81,26 @@ test('cliques concorrentes são serializados', async () => {
   assert.equal(api.getFavorites().length, 0);
   assert.equal(api.calls[2].op, 'delete');
 });
-test('troca de conta recarrega a página', async () => {
+test('troca de conta e logout limpam as coleções sem reload', async () => {
+  const api = setup({ user: { id: 'A' }, rows: [{ kind: 'favorites', title_id: 'm1' }] });
+  await api.initializeStorage();
+  api.resetStorage();
+  assert.equal(api.getCurrentUser(), null);
+  assert.equal(api.getFavorites().length, 0);
+  api.state.rows = [];
+  await api.initializeStorage({ user: { id: 'B' } });
+  assert.equal(api.getCurrentUser().id, 'B');
+  assert.equal(api.getFavorites().length, 0);
+  assert.equal(api.reloads(), 0);
+});
+test('escrita enfileirada da conta anterior é descartada', async () => {
   const api = setup({ user: { id: 'A' } });
   await api.initializeStorage();
-  api.auth({ user: { id: 'A' } });
-  assert.equal(api.reloads(), 0);
-  api.auth({ user: { id: 'B' } });
-  assert.equal(api.reloads(), 1);
+  const pending = api.addFavorite('m1');
+  api.resetStorage();
+  await assert.rejects(pending, /conta mudou/);
+  assert.equal(api.calls.length, 1);
+  assert.equal(api.getFavorites().length, 0);
 });
 test('coleções com mais de 500 registros são carregadas integralmente', async () => {
   const rows = Array.from({ length: 501 }, (_, i) => ({ kind: 'favorites', title_id: 'm' + i }));

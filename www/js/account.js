@@ -1,7 +1,7 @@
-import { getClient } from './backend.js';
+import { auth } from '../../src/services/auth.js';
 import { getCurrentUser } from './storage.js';
 
-export function attachAccount() {
+export function attachAccount(scope) {
   const open = document.querySelector('[data-account]');
   const dialog = document.createElement('dialog');
   dialog.className = 'account-dialog';
@@ -24,6 +24,7 @@ export function attachAccount() {
       </div>
     </div>`;
   document.body.appendChild(dialog);
+  scope.cleanup(() => { dialog.close(); dialog.remove(); });
   const status = dialog.querySelector('[data-account-status]');
   const form = dialog.querySelector('form');
   const current = getCurrentUser();
@@ -32,7 +33,7 @@ export function attachAccount() {
   status.textContent = current ? 'Conectado como ' + current.email
     : 'Entre para salvar favoritos, lista e assistidos no Supabase.';
   open.textContent = current ? 'Minha conta' : 'Entrar';
-  open.addEventListener('click', () => dialog.showModal());
+  scope.on(open, 'click', () => dialog.showModal());
   dialog.querySelector('[data-account-close]').addEventListener('click', () => dialog.close());
   async function run(operation) {
     const buttons = dialog.querySelectorAll('button:not([data-account-close])');
@@ -47,28 +48,18 @@ export function attachAccount() {
     const action = event.submitter?.value || 'login';
     const fields = new FormData(form);
     run(async () => {
-      const client = await getClient();
       const credentials = { email: fields.get('email').trim(), password: fields.get('password') };
-      const result = action === 'signup'
-        ? await client.auth.signUp(credentials)
-        : await client.auth.signInWithPassword(credentials);
-      if (result.error) {
-        throw new Error(action === 'login'
-          ? 'Não foi possível entrar. Confira e-mail e senha.'
-          : 'Não foi possível criar a conta. Confira os dados ou tente novamente mais tarde.');
-      }
+      const result = action === 'signup' ? await auth.signUp(credentials) : await auth.signIn(credentials);
       form.reset();
-      if (result.data.session) {
-        window.location.reload();
+      if (result.session) {
+        dialog.close();
       } else {
-        status.textContent = 'O projeto Supabase ainda exige confirmação de e-mail. Desative Confirm Email em Authentication > Providers > Email.';
+        status.textContent = 'Confira seu e-mail e confirme o cadastro antes de entrar.';
       }
     });
   });
   dialog.querySelector('[data-signout]').addEventListener('click', () => run(async () => {
-    const client = await getClient();
-    const { error } = await client.auth.signOut({ scope: 'local' });
-    if (error) throw new Error('Não foi possível sair. Tente novamente.');
-    window.location.reload();
+    await auth.signOut();
+    dialog.close();
   }));
 }

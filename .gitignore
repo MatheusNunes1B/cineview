@@ -56,3 +56,7 @@ Desktop.ini
 *.temp
 *.bak
 *~
+
+# Browser validation
+playwright-report/
+test-results/

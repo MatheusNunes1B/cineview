@@ -1,6 +1,6 @@
 import { card } from './ui.js';
 
-export function attachSearch(all) {
+export function attachSearch(all, scope) {
   const modal = document.querySelector('[data-search-modal]');
   if (!modal) return;
 
@@ -49,17 +49,18 @@ export function attachSearch(all) {
   const openSearch = () => {
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
-    setTimeout(() => {
+    scope.timeout(() => {
       if (searchInput) searchInput.focus();
     }, 50);
   };
 
+  scope.cleanup(() => { document.body.style.overflow = ''; });
   const closeSearch = () => {
     modal.classList.add('hidden');
     document.body.style.overflow = '';
   };
 
-  document.addEventListener('click', e => {
+  scope.on(document, 'click', e => {
     if (e.target.closest('[data-open-search]')) {
       openSearch();
     }
@@ -68,19 +69,19 @@ export function attachSearch(all) {
     }
   });
 
-  document.addEventListener('input', e => {
+  scope.on(document, 'input', e => {
     if (e.target.matches('[data-global-search]')) {
       renderResults(e.target.value);
     }
   });
 
-  document.addEventListener('keydown', e => {
+  scope.on(document, 'keydown', e => {
     if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
       closeSearch();
     }
   });
 
-  window.addEventListener('cineview:storage-change', () => {
+  scope.on(window, 'cineview:storage-change', () => {
     if (!modal.classList.contains('hidden') && searchInput && searchInput.value) {
       renderResults(searchInput.value);
     }
