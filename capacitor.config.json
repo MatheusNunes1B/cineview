@@ -1,5 +1,6 @@
 {
   "appId": "com.cineview",
   "appName": "CineView",
-  "webDir": "dist"
+  "webDir": "dist",
+  "loggingBehavior": "none"
 }

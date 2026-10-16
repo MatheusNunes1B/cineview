@@ -47,3 +47,5 @@ GitHub Pages é uma publicação separada, em https://matheusnunes1b.github.io/c
 Não limpe dados nem desinstale como teste de encerramento; isso apaga a persistência. Não mostre senhas, tokens ou o conteúdo de Preferences na gravação.
 
 Referências: https://capacitorjs.com/docs/apis/preferences e https://supabase.com/docs/reference/javascript/auth-onauthstatechange.
+
+Compatibilidade Android: o timeout de rede usa AbortController e os listeners são removidos explicitamente, sem depender de AbortSignal.any/timeout ou da opção signal de addEventListener. loggingBehavior: none evita que o bridge Capacitor registre valores de Preferences (inclusive tokens) no console/logcat.
