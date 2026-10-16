@@ -4,11 +4,11 @@
 
 O estado de React e do SDK Supabase é volátil: desaparece quando o processo termina. O AuthProvider reconstrói session e user após ler a sessão persistida em Preferences, chave supabase_session, e validá-la com supabase.auth.setSession. Não confia no usuário gravado para autorizar coleções; usa o usuário retornado pelo Supabase.
 
-A persistência automática do SDK foi desativada (persistSession: false). Preferences é o único armazenamento durável; SIGNED_IN e TOKEN_REFRESHED salvam JSON e SIGNED_OUT remove a chave. O SDK continua renovando tokens em memória. No Android o plugin usa SharedPreferences; na web, o fallback oficial usa localStorage. Preferences não é um cofre e não criptografa tokens. Não são armazenadas senhas. RLS e confirmação de e-mail permanecem ativas, sem alteração de políticas.
+A persistência automática do SDK foi desativada (persistSession: false). Preferences é o único armazenamento durável; SIGNED_IN e TOKEN_REFRESHED salvam JSON e SIGNED_OUT remove a chave. O SDK continua renovando tokens em memória. No Android o plugin usa SharedPreferences; na web, o fallback oficial usa localStorage. Preferences não é um cofre e não criptografa tokens. Não são armazenadas senhas. As políticas RLS são preservadas. O app respeita a configuração de confirmação de e-mail definida no servidor, sem alterá-la.
 
 As operações de autenticação e as gravações são serializadas. Login, logout e navegação interna aguardam a persistência. Um timeout mostra erro e nova tentativa, mas não libera a fila de uma operação ainda pendente: assim seu resultado não sobrescreve um login/logout posterior. O callback onAuthStateChange é síncrono e não chama outros métodos de autenticação. Inicializações concorrentes compartilham o mesmo bootstrap.
 
-JSON e JWT inválidos e tokens revogados são descartados. Falhas temporárias de rede e leitura preservam a sessão recuperável. Falhas de escrita/remoção ficam visíveis e podem ser repetidas. Sem Supabase configurado, o catálogo local abre como visitante e a autenticação fica indisponível.
+JSON e JWT inválidos e tokens revogados são descartados. Falhas temporárias de rede e leitura preservam a sessão recuperável. Falhas de escrita/remoção ficam visíveis e podem ser repetidas. Sem Supabase configurado, a tela de Login informa a indisponibilidade; as telas internas não são liberadas.
 
 A interface existente é montada após autenticação e coleções. Troca de usuário e logout apagam o cache privado e invalidam consultas/gravações antigas. Listeners, observadores, timers, animações e diálogo são removidos no cleanup. As seis páginas HTML passam pelo mesmo AuthProvider. Não há reload associado a login/logout.
 
@@ -29,15 +29,15 @@ Os testes automatizados de navegador usam dados fictícios, sem criar usuários 
 
 ## Publicação existente
 
-Projeto Cloudflare Pages: cineview; endereço: https://cineview-er5.pages.dev; branch de produção: main. A inspeção da conta confirmou publicação direta (sem Git Provider). Portanto, push sozinho não publica esse endereço.
+Projeto Cloudflare Pages atual: cineview-app; endereço: https://cineview-app.pages.dev; branch de produção: main. A inspeção da conta confirmou publicação direta (sem Git Provider). Portanto, push sozinho não publica esse endereço.
 
-Build local: npm run build, com as duas variáveis públicas disponíveis. Upload: npx wrangler pages deploy dist --project-name cineview --branch main. Não enviar www ou a raiz do repositório. Conferir o status final na API/painel Cloudflare, version.json e os hashes dos assets servidos. O build gera version.json com o commit para essa conferência.
+Build local: npm run build, com as duas variáveis públicas disponíveis. Upload: npx wrangler pages deploy dist --project-name cineview-app --branch main. Não enviar www ou a raiz do repositório. Conferir o status final na API/painel Cloudflare, version.json e os hashes dos assets servidos. O build gera version.json com o commit para essa conferência.
 
-GitHub Pages é uma publicação separada, em https://matheusnunes1b.github.io/cineview/. Seus registros de sucesso não comprovam o deploy Cloudflare. Nenhum projeto ou domínio novo é necessário.
+GitHub Pages é uma publicação separada, em https://matheusnunes1b.github.io/cineview/. Seus registros de sucesso não comprovam o deploy Cloudflare. O domínio antigo cineview-er5.pages.dev foi substituído, a pedido do usuário, após um bloqueio de segurança; trocar o domínio não resolve a análise do domínio antigo.
 
 ## Roteiro do vídeo / teste Android
 
-1. Instale o novo APK. Abra Minha conta e faça login com uma conta confirmada.
+1. Instale o novo APK. Faça login na tela inicial com uma conta válida e abra Minha conta.
 2. Mostre o e-mail conectado; abra favoritos/lista e salve um título de teste.
 3. Em Configurações do Android > Apps > CineView, use Forçar parada. Alternativa: adb shell am force-stop com.cineview.
 4. Abra novamente pelo ícone (ou adb shell am start -n com.cineview/.MainActivity).

@@ -19,7 +19,7 @@ No painel do Supabase, abra Authentication > Providers > Email, desative Confirm
 
 ## Persistência
 
-Favoritos, lista e assistidos são gravados somente em public.user_collections para usuários autenticados. Visitantes podem navegar no catálogo online, mas precisam entrar para salvar títulos. Nenhuma coleção é gravada em localStorage. A sessão de login usa sessionStorage apenas para continuar entre páginas na mesma aba; ela termina quando a aba é fechada. Dados antigos de cineview:* em localStorage, se existirem, são ignorados e não são apagados automaticamente.
+Favoritos, lista e assistidos são gravados somente em public.user_collections para usuários autenticados. As páginas internas exigem login. A sessão é persistida por @capacitor/preferences e restaurada antes de liberar o catálogo; sair da conta remove a sessão e limpa as coleções em memória. Veja [persistência](../docs/auth-persistence.md) e [login Google](../docs/google-auth.md).
 
 As políticas RLS da primeira migração permitem ler titles publicamente e limitam user_collections ao dono. Nunca coloque service_role ou sb_secret_ no frontend.
 

@@ -1,3 +1,5 @@
+import AuthScreen from './components/AuthScreen.jsx';
+import AccountDialog from './components/AccountDialog.jsx';
 import { useEffect, useState } from 'react';
 import { useAuth } from './contexts/AuthContext.jsx';
 import { supabase } from './services/supabaseClient.js';
@@ -13,7 +15,7 @@ export default function App() {
   const userId = auth.user?.id || null;
   const blocked = auth.loading || Boolean(auth.error);
   useEffect(() => {
-    if (blocked) return;
+    if (blocked || !userId) return;
     const controller = new AbortController();
     let active = true, cleanup;
     const timeoutId = setTimeout(() => controller.abort(), 15000);
@@ -34,8 +36,9 @@ export default function App() {
     })();
     return () => { active = false; clearTimeout(timeoutId); controller.abort(); cleanup?.(); resetStorage(); };
   }, [blocked, userId, attempt]);
-  const error = auth.error || status.error;
-  const loading = auth.loading || (!auth.error && status.loading);
+  if (!blocked && !userId) return <AuthScreen />;
+  const error = auth.error || (userId ? status.error : null);
+  const loading = auth.loading || (Boolean(userId) && !auth.error && status.loading);
   return <>
     {(loading || error) && <div className="mx-auto max-w-3xl px-4 py-16 text-center text-white">
       <p className="mb-6 text-2xl font-bold"><span className="rounded-lg bg-accent px-2">Cine</span>View</p>
@@ -45,6 +48,7 @@ export default function App() {
           className="mt-4 rounded-lg bg-accent px-4 py-2">Tentar novamente</button>
       </div>}
     </div>}
+    {userId && !blocked && <AccountDialog />}
     <div id="app" hidden={blocked || status.loading || Boolean(status.error)} />
   </>;
 }

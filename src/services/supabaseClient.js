@@ -17,3 +17,11 @@ export const supabase = isSupabaseConfigured ? createClient(supabaseUrl, supabas
   auth: { persistSession: false, autoRefreshToken: true, detectSessionInUrl: true },
   global: { fetch: fetchWithTimeout }
 }) : null;
+
+export async function isGoogleEnabled() {
+  if (!supabase) return false;
+  const response = await fetchWithTimeout(supabaseUrl + "/auth/v1/settings", { headers: { apikey: supabaseAnonKey } });
+  if (!response.ok) throw new Error("Não foi possível consultar o login Google. Tente novamente.");
+  const settings = await response.json();
+  return settings.external?.google === true;
+}

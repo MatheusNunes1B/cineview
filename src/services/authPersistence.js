@@ -1,3 +1,4 @@
+import { authFormError } from './authErrors.js';
 export const SESSION_KEY = 'supabase_session';
 const recoverableMessage = 'Não foi possível restaurar a conta. Verifique a conexão e tente novamente. Sua sessão foi preservada.';
 const storageMessage = 'Não foi possível acessar o armazenamento da conta. Tente novamente antes de fechar ou navegar.';
@@ -59,7 +60,7 @@ export function createAuthController(client, preferences, { timeoutMs = 15000 } 
       // A retry joins the outstanding bootstrap, so late SDK results cannot race a new login.
       const timer = setTimeout(() => publish({ loading: false, error: 'A conta demorou para responder. Verifique a conexão e tente novamente.' }), timeoutMs);
       try { const result = await operation(); if (!writeError) publish({ error: null }); return result; }
-      catch (error) { publish({ error: error.message || recoverableMessage }); throw error; }
+      catch (error) { if (!error.formError) publish({ error: error.message || recoverableMessage }); throw error; }
       finally { clearTimeout(timer); operating = false; publish({ busy: false, loading: false }); }
     });
     operations = task.catch(() => {});
@@ -118,10 +119,10 @@ export function createAuthController(client, preferences, { timeoutMs = 15000 } 
     await initialize();
     return run(async () => {
       if (!client) throw new Error('Autenticação indisponível: Supabase não configurado.');
-      const result = await client.auth[method](credentials);
-      if (result.error) throw new Error(method === 'signUp'
-        ? 'Não foi possível criar a conta. Confira os dados ou tente novamente mais tarde.'
-        : 'Não foi possível entrar. Confira e-mail e senha ou tente novamente.');
+      let result;
+      try { result = await client.auth[method](credentials); }
+      catch (error) { throw authFormError(error, method); }
+      if (result.error) throw authFormError(result.error, method);
       if (result.data.session) {
         publish({ session: result.data.session });
         await persist(result.data.session);
@@ -162,6 +163,8 @@ export function createAuthController(client, preferences, { timeoutMs = 15000 } 
     },
     signIn: credentials => authenticate('signInWithPassword', credentials),
     signUp: credentials => authenticate('signUp', credentials),
+    signInWithGoogle: redirectTo => authenticate('signInWithOAuth', { provider: 'google', options: { redirectTo, skipBrowserRedirect: true } }),
+    acceptOAuthSession: tokens => authenticate('setSession', tokens),
     signOut
   };
 }
