@@ -1,5 +1,6 @@
 import AuthScreen from './components/AuthScreen.jsx';
 import AccountDialog from './components/AccountDialog.jsx';
+import ProfilePhotoPicker from './components/ProfilePhotoPicker.jsx';
 import { useEffect, useState } from 'react';
 import { useAuth } from './contexts/AuthContext.jsx';
 import { supabase } from './services/supabaseClient.js';
@@ -49,6 +50,7 @@ export default function App() {
       </div>}
     </div>}
     {userId && !blocked && <AccountDialog />}
+    {userId && !blocked && !status.loading && !status.error && <ProfilePhotoPicker />}
     <div id="app" hidden={blocked || status.loading || Boolean(status.error)} />
   </>;
 }
