@@ -50,7 +50,7 @@ export default function App() {
       </div>}
     </div>}
     {userId && !blocked && <AccountDialog />}
-    {userId && !blocked && !status.loading && !status.error && <ProfilePhotoPicker />}
+    {userId && !blocked && !status.loading && !status.error && <ProfilePhotoPicker userId={userId} />}
     <div id="app" hidden={blocked || status.loading || Boolean(status.error)} />
   </>;
 }
