@@ -4,6 +4,7 @@ import { App } from '@capacitor/app';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { cameraMessages, classifyCameraError, isPermissionBlocked } from '../services/cameraErrors.js';
 import { loadWebCameraUi } from '../services/webCameraUi.js';
+import { uploadPhotoToStorage } from '../services/photoStorage.js';
 
 const LOG_PREFIX = '[CineView][Câmera]';
 const native = Capacitor.isNativePlatform();
@@ -43,7 +44,7 @@ const CameraIcon = () => <svg width="22" height="22" viewBox="0 0 24 24" fill="n
 // Botão flutuante visível em todas as páginas + painel NÃO modal com a pré-visualização.
 // O painel não pode ser um <dialog> modal: a interface do plugin no navegador é inserida no <body>
 // e ficaria bloqueada atrás de um modal.
-export default function ProfilePhotoPicker() {
+export default function ProfilePhotoPicker({ userId }) {
   const [photo, setPhoto] = useState(null);
   const [loading, setLoading] = useState(false);
   const [feedback, setFeedback] = useState(null);
@@ -68,7 +69,14 @@ export default function ProfilePhotoPicker() {
     App.addListener('appRestoredResult', event => {
       if (!active || event.pluginId !== 'Camera' || event.methodName !== 'getPhoto') return;
       if (event.success && event.data?.webPath) {
-        setPhoto({ webPath: event.data.webPath, format: event.data.format });
+        void uploadPhotoToStorage({ ...event.data, userId }).then(uploaded => {
+          setPhoto({ ...event.data, ...uploaded });
+          setFeedback({ tone: 'success', text: 'Foto enviada para o Supabase.' });
+        }).catch(error => {
+          console.error(LOG_PREFIX, 'Não foi possível enviar a foto recuperada.', error?.message);
+          setPhoto({ webPath: event.data.webPath, format: event.data.format });
+          setFeedback({ tone: 'error', text: `A foto foi capturada, mas o envio falhou: ${error.message}` });
+        });
         setFeedback(null);
         setOpen(true);
       } else if (!event.success && classifyCameraError(event.error).kind !== 'cancelled') {
@@ -122,6 +130,15 @@ export default function ProfilePhotoPicker() {
         return;
       }
       setPhoto({ webPath: result.webPath, format: result.format });
+      setFeedback({ tone: 'info', text: 'Foto capturada. Enviando para o Supabase…' });
+      try {
+        const uploaded = await uploadPhotoToStorage({ ...result, userId });
+        setPhoto({ webPath: result.webPath, format: result.format, ...uploaded });
+        setFeedback({ tone: 'success', text: 'Foto enviada para o Supabase.' });
+      } catch (uploadError) {
+        console.error(LOG_PREFIX, 'A foto foi capturada, mas o envio falhou.', uploadError?.message);
+        setFeedback({ tone: 'error', text: `A foto foi capturada, mas o envio falhou: ${uploadError.message}` });
+      }
       setOpen(true);
     } catch (error) {
       const failure = classifyCameraError(error);
@@ -157,7 +174,7 @@ export default function ProfilePhotoPicker() {
     return <button type="button" ref={fab} className="photo-fab" data-photo-fab
       aria-label={photo ? 'Ver sua foto' : undefined}
       onClick={() => { if (photo || pending.current) setOpen(true); else void choosePhoto(); }}>
-      {photo ? <><img className="photo-fab-thumb" src={photo.webPath} alt="" />Sua foto</> : <><CameraIcon />Tirar Foto / Galeria</>}
+      {photo ? <><img className="photo-fab-thumb" src={photo.publicUrl || photo.webPath} alt="" />Sua foto</> : <><CameraIcon />Tirar Foto / Galeria</>}
     </button>;
   }
 
@@ -178,7 +195,7 @@ export default function ProfilePhotoPicker() {
         </div>}
       {photo && loading && <div className="photo-overlay">Aguardando a câmera ou a galeria…</div>}
     </div>
-    {photo && <p className="photo-caption">A imagem fica só neste aparelho e não é enviada para nenhum servidor.</p>}
+    {photo && <p className="photo-caption">Imagem armazenada no Supabase Storage. Bucket: user-photos.</p>}
     {feedback && <p className="photo-feedback" data-tone={feedback.tone} role={feedback.tone === 'error' ? 'alert' : 'status'}>{feedback.text}</p>}
     <div className="photo-actions">
       <button type="button" className="photo-primary" disabled={loading} aria-busy={loading} onClick={() => { void choosePhoto(); }}>
