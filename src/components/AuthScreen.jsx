@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useAuth } from '../contexts/AuthContext.jsx';
 import { isSupabaseConfigured } from '../services/supabaseClient.js';
 import { webRedirect } from '../services/googleOAuth.js';
@@ -9,13 +9,15 @@ export default function AuthScreen() {
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [pending, setPending] = useState(false);
+  const pendingRef = useRef(false);
   const busy = pending || auth.busy;
   async function run(operation) {
-    if (busy) return;
+    if (busy || pendingRef.current) return;
+    pendingRef.current = true;
     setPending(true); setError(''); setMessage(''); auth.clearOAuthError();
     try { await operation(); }
     catch (failure) { setError(failure.message || 'Não foi possível concluir. Tente novamente.'); }
-    finally { setPending(false); }
+    finally { pendingRef.current = false; setPending(false); }
   }
   function submit(event) {
     event.preventDefault();
