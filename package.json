@@ -38,6 +38,7 @@
     "@capacitor/app": "^8.1.2",
     "@capacitor/browser": "^8.0.5",
     "@capacitor/camera": "^8.2.6",
+    "@capacitor/geolocation": "^8.2.4",
     "@capacitor/preferences": "^8.0.1",
     "@ionic/pwa-elements": "^3.4.0",
     "@supabase/supabase-js": "^2.117.2",

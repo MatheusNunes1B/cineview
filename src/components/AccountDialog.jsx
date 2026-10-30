@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useAuth } from '../contexts/AuthContext.jsx';
+import LocationSection from './LocationSection.jsx';
 export default function AccountDialog() {
   const { user, busy, signOut } = useAuth();
   const dialog = useRef(null);
@@ -18,6 +19,7 @@ export default function AccountDialog() {
       {avatar && <img className="account-avatar" src={avatar} alt="Foto de perfil" referrerPolicy="no-referrer" onError={event => { event.currentTarget.hidden = true; }} />}
       <h2 id="account-title">{name}</h2>
       <p data-account-status>{user?.email}</p>
+      <LocationSection />
       <button type="button" data-signout disabled={busy} onClick={() => { void signOut().catch(() => {}); }}>Sair da conta</button>
     </div>
   </dialog>;
